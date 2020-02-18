@@ -24,6 +24,7 @@ class PlacesController < ApplicationController
         @place = Place.new
         @rating = Rating.new
         @review = Review.new
+        @tags = Tag.all
     end
   
     def edit
@@ -62,6 +63,7 @@ class PlacesController < ApplicationController
 
         redirect_to @place
     end
+
   
     def update
     end
@@ -71,7 +73,7 @@ class PlacesController < ApplicationController
 
     private
     def place_params
-        params.require(:place).permit(:id, :name, :description, :img_url, :address)
+        params.require(:place).permit(:id, :name, :description, :img_url, :address, :tag_ids => [])
     end
 
     def rating_params
@@ -81,5 +83,9 @@ class PlacesController < ApplicationController
     def review_params
         params.require(:place).permit(:review)
     end
+
+    # def tag_params
+    #     params.require(:place).permit(:name, :tag_ids => [])
+    # end
 
 end

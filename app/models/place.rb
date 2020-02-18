@@ -3,4 +3,5 @@ class Place < ApplicationRecord
     belongs_to :user
     has_many :rating
     has_many :review
+    has_and_belongs_to_many :tag
   end

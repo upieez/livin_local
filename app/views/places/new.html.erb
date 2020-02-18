@@ -35,6 +35,9 @@
     </p>
   
     <p>
+    <%= form.collection_check_boxes :tag_ids, @tags, :id, :name %>
+    </p>
+    <p>
       <%= form.submit %>
     </p>
   <% end %>
