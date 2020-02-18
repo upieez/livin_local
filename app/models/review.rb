@@ -1,6 +1,5 @@
-class Place < ApplicationRecord
+class Review < ApplicationRecord
     # AR classes are singular and capitalized by convention
     belongs_to :user
-    has_many :rating
-    has_many :review
+    belongs_to :place
   end
