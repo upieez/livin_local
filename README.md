@@ -26,9 +26,12 @@ User Stories:
 - As a traveler, I want to be able to give reviews or comments on a particular place so that others may have a more pleasant travel experience through that information.
 
 
-ERD
+ERD:
+insert link from github
 
--- insert things here
+Userflow:
+insert link from github
+
 
 Wireframe
 
