@@ -6,6 +6,7 @@
 </p>
 
 <img src=<%=@place.img_url%>>
-<%= @place.rating %>
+<%= @rating.value %>
+<% puts @rating.inspect %>
 
 <%= link_to 'Back', places_path %>

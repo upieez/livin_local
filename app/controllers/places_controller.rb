@@ -16,13 +16,16 @@ class PlacesController < ApplicationController
   
     def show
         @place = Place.find(params[:id])
+        @rating = Rating.where(place_id: params[:id]).take
     end
   
     def new
         @place = Place.new
+        @rating = Rating.new
     end
   
     def edit
+        @place = Place.find(params[:id])
     end
   
     def create
@@ -31,6 +34,14 @@ class PlacesController < ApplicationController
         @place.user = current_user
 
         @place.save
+
+        @rating = Rating.new(rating_params)
+
+        @rating.user = current_user
+
+        @rating.place = @place
+
+        @rating.save
 
         redirect_to @place
     end
@@ -43,7 +54,11 @@ class PlacesController < ApplicationController
 
     private
     def place_params
-        params.require(:place).permit(:name, :description, :img_url, :address, :rating)
+        params.require(:place).permit(:id, :name, :description, :img_url, :address)
+    end
+
+    def rating_params
+        params.require(:place).permit(:value)
     end
 
 end

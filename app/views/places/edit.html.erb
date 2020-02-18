@@ -1,4 +1,4 @@
-<h1>This is the new page</h1>
+<h1>This is the edit page</h1>
 
 <%= form_with scope: :place, url: places_path, local: true do |form| %>
 
@@ -21,11 +21,10 @@
         <%= form.label :image %><br>
         <%= form.text_field :img_url %>
     </p>
-    <hr/>
 
     <p>
         <%= form.label :rating %><br>
-        <%= form.number_field :value, :min => 0, :max => 5 %>
+        <%= form.number_field :rating, :min => 0, :max => 5 %>
     </p>
   
     <p>
