@@ -1,3 +1,9 @@
 <h1>Hello welcome <%= current_user[:username] %>!</h1>
 
+<ul>
+<% @places.each do |place| %>
+<li><%= link_to place.name, place_path(place) %></li>
+<% end %>
+</ul>
+
 <%= link_to 'log out', destroy_user_session_url, method: :delete %>
