@@ -1,4 +1,7 @@
 class PlacesController < ApplicationController
+
+    before_action :authenticate_user!, :except => [ :show, :index ]
+    
     def index
         @places = Place.all
     end
