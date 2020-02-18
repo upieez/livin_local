@@ -1,1 +1,35 @@
 <h1>This is the new page</h1>
+
+<%= form_with scope: :place, url: places_path, local: true do |form| %>
+
+    <p>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+    </p>
+
+    <p>
+        <%= form.label :description %><br>
+        <%= form.text_field :description %>
+    </p>
+
+    <p>
+        <%= form.label :address %><br>
+        <%= form.text_field :address %>
+    </p>
+  
+    <p>
+        <%= form.label :image %><br>
+        <%= form.text_field :img_url %>
+    </p>
+
+    <p>
+        <%= form.label :rating %><br>
+        <%= form.number_field :rating, :min => 0, :max => 5 %>
+    </p>
+  
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+
+  <%= link_to 'back', places_path %>

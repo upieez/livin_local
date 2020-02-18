@@ -1,5 +1,11 @@
 <p>Places:</p>
 <p>
-  <%= @place.title %>
+  <%= @place.name %>
+  <%= @place.description %>
+  <%= @place.address %>
 </p>
+
+<img src=<%=@place.img_url%>>
+<%= @place.rating %>
+
 <%= link_to 'Back', places_path %>
