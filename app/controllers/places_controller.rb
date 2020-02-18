@@ -17,11 +17,13 @@ class PlacesController < ApplicationController
     def show
         @place = Place.find(params[:id])
         @rating = Rating.where(place_id: params[:id]).take
+        @review = Review.where(place_id: params[:id]).take
     end
   
     def new
         @place = Place.new
         @rating = Rating.new
+        @review = Review.new
     end
   
     def edit
@@ -35,13 +37,6 @@ class PlacesController < ApplicationController
 
         @place.save
 
-        puts "--------------" + rating_params.to_s
-
-        if rating_params[:value] == ""
-            redirect_to @place
-            return
-        else
-
         @rating = Rating.new(rating_params)
 
         @rating.user = current_user
@@ -49,6 +44,19 @@ class PlacesController < ApplicationController
         @rating.place = @place
 
         @rating.save
+
+        if review_params[:review] == ""
+            redirect_to @place
+            return
+        else
+
+        @review = Review.new(review_params)
+
+        @review.user = current_user
+
+        @review.place = @place
+
+        @review.save
 
         end
 
@@ -68,6 +76,10 @@ class PlacesController < ApplicationController
 
     def rating_params
         params.require(:place).permit(:value)
+    end
+
+    def review_params
+        params.require(:place).permit(:review)
     end
 
 end

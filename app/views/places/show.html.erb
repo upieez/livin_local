@@ -6,11 +6,17 @@
 </p>
 
 <img src=<%=@place.img_url%>>
+
 <% if !@rating %>
-<h1>nothing</h1>
+<h1>no rating</h1>
 <% else %>
 <%= @rating.value %>
-<% puts @rating.inspect %>
+<% end %>
+
+<% if !@review %>
+<h1>no review</h1>
+<% else %>
+<%= @review.review %>
 <% end %>
 
 <%= link_to 'Back', places_path %>
