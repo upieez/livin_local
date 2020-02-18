@@ -2,7 +2,7 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <p><%= f.label :login %><br />
+    <p><%= f.label :login %> with username or email<br />
     <%= f.text_field :login %></p>
   </div>
 
