@@ -1,24 +1,21 @@
-# README
+# LIVIN' LOCAL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Persona
 
-Things you may want to cover:
+-- insert things here
 
-* Ruby version
+Problem statement
 
-* System dependencies
+-- insert things here
 
-* Configuration
+ERD
 
-* Database creation
+-- insert things here
 
-* Database initialization
+Wireframe
 
-* How to run the test suite
+-- insert things here
 
-* Services (job queues, cache servers, search engines, etc.)
+Technologies used
 
-* Deployment instructions
-
-* ...
+* Ruby on Rails
