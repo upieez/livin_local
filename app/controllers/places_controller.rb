@@ -1,7 +1,15 @@
 class PlacesController < ApplicationController
 
-    before_action :authenticate_user!, :except => [ :show, :index ]
-    
+    before_action :authenticate_user!, :except => [ :show, :home ]
+
+    def home
+        if user_signed_in?
+            redirect_to '/places'
+        else
+            return
+        end
+    end
+
     def index
         @places = Place.all
     end
