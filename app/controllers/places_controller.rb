@@ -35,6 +35,13 @@ class PlacesController < ApplicationController
 
         @place.save
 
+        puts "--------------" + rating_params.to_s
+
+        if rating_params[:value] == ""
+            redirect_to @place
+            return
+        else
+
         @rating = Rating.new(rating_params)
 
         @rating.user = current_user
@@ -42,6 +49,8 @@ class PlacesController < ApplicationController
         @rating.place = @place
 
         @rating.save
+
+        end
 
         redirect_to @place
     end
