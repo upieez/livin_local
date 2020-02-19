@@ -1,9 +1,10 @@
 <h1>Hello welcome <%= current_user[:username] %>!</h1>
 
 <div class="row d-flex justify-content-around p-4">
+<div class="card-columns">
 <% @places.each do |place| %>
-    <div class="mb-4">
-        <div class="card" style="width: 18rem;">
+    <div class="mb-4 card border-warning">
+        <div class="border-warning">
             <%= cl_image_tag((place.img_url), class: "card-img-top") %>
             <div class="card-body">
                 <h5 class="card-title"><%=place.name%></h5>
@@ -12,4 +13,5 @@
         </div>
     </div>
 <% end %>
+</div>
 </div>

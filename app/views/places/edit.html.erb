@@ -14,9 +14,10 @@
 
     <p>
         <%= form.label :address %><br>
-        <%= form.text_field :address %>
+        <!-- input type is needed for places api -->
+        <input type="text" name="place[address]" id="autocomplete">
     </p>
-  
+
     <p>
         <%= form.label :image %><br>
         <%= form.text_field :img_url %>
@@ -26,7 +27,7 @@
         <%= form.label :rating %><br>
         <%= form.number_field :rating, :min => 0, :max => 5 %>
     </p>
-  
+
     <p>
       <%= form.submit %>
     </p>

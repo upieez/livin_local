@@ -13,20 +13,21 @@ class PlacesController < ApplicationController
     def index
         @places = Place.all
     end
-  
+
     def show
+        require 'uri-handler'
         @place = Place.find(params[:id])
         @rating = Rating.where(place_id: params[:id]).take
         @review = Review.where(place_id: params[:id]).take
     end
-  
+
     def new
         @place = Place.new
         @rating = Rating.new
         @review = Review.new
         @tags = Tag.all
     end
-  
+
     def edit
         @place = Place.find(params[:id])
     end
@@ -70,14 +71,14 @@ class PlacesController < ApplicationController
         redirect_to @place
     end
 
-  
+
     def update
         @place = Place.find(params[:id])
 
         @place.update(place_params)
         redirect_to @place
     end
-  
+
     def destroy
     end
 
