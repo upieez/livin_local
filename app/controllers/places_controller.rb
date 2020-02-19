@@ -36,6 +36,12 @@ class PlacesController < ApplicationController
 
         @place.user = current_user
 
+        uploaded_file = place_params[:img_url].path
+
+        cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+
+        @place.img_url = cloudnary_file['public_id']
+
         @place.save
 
         @rating = Rating.new(rating_params)
