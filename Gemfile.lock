@@ -213,10 +213,10 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    uri-handler (1.0.2)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
+    uri-handler (1.0.2)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
