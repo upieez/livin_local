@@ -16,6 +16,11 @@
 
  @import "bootstrap";
 
+ #map {
+    height:500px;
+    width:100%;
+ }
+
  .card-columns {
     @include media-breakpoint-only(lg) {
       column-count: 4;
@@ -24,3 +29,4 @@
       column-count: 5;
     }
   }
+

@@ -30,10 +30,10 @@ ERD:
 https://github.com/upieez/livin_local/blob/master/Livin'Local%20App%20ERD.pdf
 
 Userflow:
-insert link
+https://github.com/upieez/livin_local/blob/master/livinlocal_userflow.pdf
 
 Wireframe:
-insert link
+https://github.com/upieez/livin_local/blob/master/livinlocal_wireframe.pdf
 
 
 Technologies used

@@ -1,11 +1,15 @@
-
 <div class="container">
   <div class="row">
     <div class="col border">
     <h1><%= @place.name %></h1>
     <p>Description: <%= @place.description %></p>
-    <p>Address:   <%= @place.address %></p>
+    <p>Address: <%= @place.address %></p>
+
     </div>
+    <!-- div for map image -->
+      <div id = "map">
+         <img src = <%= "https://maps.googleapis.com/maps/api/staticmap?center=" + @place.name + "&zoom=20&size=600x400&markers=color:red&key=AIzaSyC0mU_z1ODp6PjIxdxewMWW9559ZzoerOA" %> alt= "Map view of location">
+      </div>
 
     <div class="col border">
     <%= cl_image_tag(@place.img_url) %>
