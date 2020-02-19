@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dvw2vqzm4
+  api_key: '396351942667458'
+  api_secret: 2Uq70Hob2jA7i-Q1ibdTCx8eW9o
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dvw2vqzm4
+  api_key: '396351942667458'
+  api_secret: 2Uq70Hob2jA7i-Q1ibdTCx8eW9o
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dvw2vqzm4
+  api_key: '396351942667458'
+  api_secret: 2Uq70Hob2jA7i-Q1ibdTCx8eW9o
+  enhance_image_tag: true
+  static_file_support: false

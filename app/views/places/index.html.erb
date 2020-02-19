@@ -1,13 +1,12 @@
 <h1>Hello welcome <%= current_user[:username] %>!</h1>
 
-<div class="row">
+<div class="row d-flex justify-content-around p-4">
 <% @places.each do |place| %>
-    <div class="d-flex justify-content-around mb-4 ml-4">
+    <div class="mb-4">
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Marina_Bay_Sands_in_the_evening_-_20101120.jpg/600px-Marina_Bay_Sands_in_the_evening_-_20101120.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><%=place.name%></h5>
-                <p class="card-text"><%=place.description%></p>
                 <%= link_to 'View', place_path(place), class: "btn btn-primary" %>
             </div>
         </div>
