@@ -1,22 +1,31 @@
-<p>Places:</p>
-<p>
-  <%= @place.name %>
-  <%= @place.description %>
-  <%= @place.address %>
-</p>
 
-<img src=<%=@place.img_url%>>
+<div class="container">
+  <div class="row">
+    <div class="col border">
+    <h1><%= @place.name %></h1>
+    <p>Description: <%= @place.description %></p>
+    <p>Address:   <%= @place.address %></p>
+    </div>
 
-<% if !@rating %>
-<h1>no rating</h1>
-<% else %>
-<%= @rating.value %>
-<% end %>
+    <div class="col border">
+    <img src=<%=@place.img_url%>>
+    </div>
+  </div>
+</div>
 
-<% if !@review %>
-<h1>no review</h1>
-<% else %>
-<%= @review.review %>
-<% end %>
+<div class="row">
+  <div class="col">
+    <% if !@rating %>
+    <h1>no rating</h1>
+    <% else %>
+    <%= @rating.value %>
+    <% end %>
 
+    <% if !@review %>
+    <h1>no review</h1>
+    <% else %>
+    <%= @review.review %>
+    <% end %>
+  </div>
+</div>
 <%= link_to 'Back', places_path %>
