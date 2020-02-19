@@ -66,6 +66,10 @@ class PlacesController < ApplicationController
 
   
     def update
+        @place = Place.find(params[:id])
+
+        @place.update(place_params)
+        redirect_to @place
     end
   
     def destroy
@@ -83,9 +87,5 @@ class PlacesController < ApplicationController
     def review_params
         params.require(:place).permit(:review)
     end
-
-    # def tag_params
-    #     params.require(:place).permit(:name, :tag_ids => [])
-    # end
 
 end
