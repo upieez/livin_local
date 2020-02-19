@@ -4,6 +4,7 @@
     <title>LivinLocal</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -46,7 +47,7 @@
 
         <%= link_to 'Sign Up', new_user_registration_url, class: "btn btn-outline-info mr-sm-2 my-2 my-sm-0" %>
         <% end %>
-        
+
         <% if user_signed_in? %>
         <%= link_to 'Log Out', destroy_user_session_url, method: :delete, class: "btn btn-outline-danger mr-sm-2 my-2 my-sm-0" %>
         <% end %>
@@ -56,5 +57,17 @@
     <div class="container-fluid text-center">
     <%= yield %>
     </div>
+    <script>
+      function activateAutocomplete() {
+        var input = document.getElementById('autocomplete');
+        var options = {
+          types: ['(cities)'],
+          componentRestrictions: {country: 'sg'}
+          };
+        var autocomplete = new google.maps.places.Autocomplete(input);
+      };
+    </script>
+    <!-- to load Maps API libraries: -->
+    <script type= "text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0mU_z1ODp6PjIxdxewMWW9559ZzoerOA&libraries=places&callback=activateAutocomplete"></script>
   </body>
 </html>
