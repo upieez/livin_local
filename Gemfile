@@ -27,6 +27,10 @@ gem 'devise'
 # gem 'mini_magick', '~> 4.8'
 gem 'bootstrap'
 gem 'jquery-rails'
+
+# for uri encoding to enable address input in static map
+gem 'uri-handler'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
