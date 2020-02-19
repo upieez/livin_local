@@ -1,6 +1,6 @@
 <h1>This is the edit page</h1>
 
-<%= form_with scope: :place, url: places_path, local: true do |form| %>
+<%= form_with scope: :place, model: @place, local: true do |form| %>
 
     <p>
         <%= form.label :name %><br>
