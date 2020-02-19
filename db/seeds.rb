@@ -14,13 +14,13 @@ cafe = Tag.create(:name => "cafe")
 
 
 
-#################################### ADMIN ####################################
+#################################### USERS AND ADMIN ####################################
 
-ann = User.create(:email => "ann@gmail.com", :password => "password321", :username => "Ann", :admin => true)
-ben = User.create(:email => "ben@gmail.com", :password => "password123", :username => "Ben", :admin => true)
-cara = User.create(:email => "clara@gmail.com", :password => "password098", :username => "Cara", :admin => true)
-don = User.create(:email => "don@gmail.com", :password => "password890", :username => "Don", :admin => true)
-erin = User.create(:email => "erin@gmail.com", :password => "password", :username => "Erin", :admin => true)
+ann = User.create(:email => "ann@gmail.com", :password => "password321", :username => "Ann", :admin => false)
+ben = User.create(:email => "ben@gmail.com", :password => "password123", :username => "Ben", :admin => false)
+cara = User.create(:email => "clara@gmail.com", :password => "password098", :username => "Cara", :admin => false)
+don = User.create(:email => "don@gmail.com", :password => "password890", :username => "Don", :admin => false)
+erin = User.create(:email => "erin@gmail.com", :password => "password", :username => "Erin", :admin => false)
 sam = User.create(:email => "sam@gmail.com", :password => "password999", :username => "Sam", :admin => true)
 angel = User.create(:email => "angel@gmail.com", :password => "password888", :username => "Angel", :admin => true)
 hwee = User.create(:email => "hweechieh@gmail.com", :password => "password777", :username => "Hweechieh", :admin => true)
