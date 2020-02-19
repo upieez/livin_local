@@ -27,16 +27,17 @@ User Stories:
 
 
 ERD:
-insert link from github
+https://github.com/upieez/livin_local/blob/master/Livin'Local%20App%20ERD.pdf
 
 Userflow:
-insert link from github
+insert link
 
+Wireframe:
+insert link
 
-Wireframe
-
--- insert things here
 
 Technologies used
 
 * Ruby on Rails
+* Google Maps API
+
