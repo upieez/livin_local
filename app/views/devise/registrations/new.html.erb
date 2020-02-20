@@ -1,27 +1,48 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <% # THIS IS TO SHOW ALL THE ERROR MESSAGES IN ONE BLOCK DO NOT DELETE -SAM %>
+  <% # <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <p><%= f.label :username %><br />
-    <%= f.text_field :username %></p>
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field mb-3">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+    <% if resource.errors.messages[:username][0] %>
+    <small>Username <%= resource.errors.messages[:username][0] %> </small>
+    <% if resource.errors.messages[:username][1] %>
+    <small>Username <%= resource.errors.messages[:username][1] %> </small>
+    <% end %>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="field mb-3">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+    <% if resource.errors.messages[:email][0] %>
+    <small>Email <%= resource.errors.messages[:email][0] %></small>
+    <% end %>
+  </div>
+
+  <div class="field mb-3">
+    <%= f.label :password %><br />
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if resource.errors.messages[:password][0] %>
+    <small>Password <%= resource.errors.messages[:password][0] %></small>
+    <% end %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <% if resource.errors.messages[:password_confirmation][0] %>
+    <small>It <%= resource.errors.messages[:password_confirmation][0] %> </small>
+    <% end %>
   </div>
+
+
 
   <br />
 
@@ -34,3 +55,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
