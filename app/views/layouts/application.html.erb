@@ -32,6 +32,12 @@
             <a class="nav-link" href="/places/new"> Submit</a>
           </li>
           <% end %>
+
+          <% if user_signed_in? and current_user.admin == true %>
+          <li class="nav-item">
+            <a class="nav-link" href="/places/pending">Pending Posts</span></a>
+          </li>
+          <% end %>
         </ul>
 
 

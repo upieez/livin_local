@@ -6,9 +6,16 @@ Rails.application.routes.draw do
     get '/places/new' => 'places#new', as: 'new_place'
     post '/places' => 'places#create'
     get '/places/creation' => 'places#creation'
+
+    #Admin routes
+    get '/places/pending' => 'admins#approve', as: 'approve_admins'
+
     get '/places/:id' => 'places#show' , as: 'place'
     get '/places/:id/edit' => 'places#edit', as: 'edit_place'
     patch '/places/:id' => 'places#update'
     delete '/places/:id' => 'places#destroy'
+
+
+
 
 end
