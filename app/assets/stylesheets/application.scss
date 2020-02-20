@@ -16,10 +16,27 @@
 
  @import "bootstrap";
 
+.container {
+  margin-top: 15px ;
+}
+
  #map {
     height:500px;
     width:100%;
  }
+
+ #location {
+  display: none;
+ }
+
+ #desc, #address{
+  font-weight: bold;
+ }
+
+ #expand {
+  margin: 10px;
+ }
+
 
  .card-columns {
     @include media-breakpoint-only(md) {
