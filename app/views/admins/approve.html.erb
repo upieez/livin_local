@@ -1,0 +1,26 @@
+<h1>Pending for Approval</h1>
+
+<div class="row d-flex justify-content-around p-4 ">
+<div class="card-columns">
+
+<%if !@places%>
+<h2>No posts for now!</h2>
+    <%else%>
+    <% @places.each do |place| %>
+        <div class="mb-4 card border-warning">
+            <div class="border-warning rounded-2">
+                <%= cl_image_tag((place.img_url), class: "card-img-top") %>
+                <div class="card-body">
+                    <h5 class="card-title"><%=place.name%></h5>
+                    <%= link_to 'View', place_path(place), class: "btn btn-primary" %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+</div>
+</div>
+
+
+
+
