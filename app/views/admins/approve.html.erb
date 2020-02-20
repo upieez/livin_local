@@ -10,6 +10,7 @@
                 <%= cl_image_tag((place.img_url), class: "card-img-top") %>
                 <div class="card-body">
                     <h5 class="card-title"><%=place.name%></h5>
+                    <%= link_to 'Approve', "/places/approve/" + place.id.to_s, class: "btn btn-primary" %>
                     <%= link_to 'View', place_path(place), class: "btn btn-primary" %>
                     <%= link_to 'Delete', "/places/pending/" + place.id.to_s, class: "btn btn-primary" %>
                 </div>
