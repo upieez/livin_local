@@ -90,6 +90,10 @@ class PlacesController < ApplicationController
     def destroy
     end
 
+    def creation
+        @places = Place.where(user_id: current_user[:id]).take
+    end
+
     private
     def place_params
         params.require(:place).permit(:id, :name, :description, :img_url, :address, :approval, :tag_ids => [])
