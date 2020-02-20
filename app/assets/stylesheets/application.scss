@@ -45,7 +45,8 @@
   font-size: 100px;
   padding: 0;
   line-height: 200px;
-  color: rgba(255,255,255, 0.8);
+  color: rgb(255,255,255);
+
 }
 
 #home{
@@ -61,11 +62,11 @@ background-image: url(https://images.unsplash.com/photo-1547982982-448b6fdad3a8?
   width: 100%;
   text-align: center;
   opacity: 0;
-  animation: titleAnimation 36s linear infinite 0s;
-  -webkit-animation: titleAnimation 36s linear infinite 0s;
-  -moz-animation: titleAnimation 36s linear infinite 0s;
-  -o-animation: titleAnimation 36s linear infinite 0s;
-  -ms-animation: titleAnimation 36s linear infinite 0s;
+  animation: titleAnimation 10s linear infinite;
+  -webkit-animation: titleAnimation 10s linear infinite;
+  -moz-animation: titleAnimation 10s linear infinite;
+  -o-animation: titleAnimation 10s linear infinite;
+  -ms-animation: titleAnimation 10s linear infinite;
 }
 
 @keyframes titleAnimation {
@@ -88,7 +89,6 @@ background-image: url(https://images.unsplash.com/photo-1547982982-448b6fdad3a8?
   }
   100% { opacity: 0 }
 }
-
 
  .card-columns {
     @include media-breakpoint-only(md) {
