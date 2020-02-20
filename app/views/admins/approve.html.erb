@@ -3,9 +3,7 @@
 <div class="row d-flex justify-content-around p-4 ">
 <div class="card-columns">
 
-<%if !@places%>
-<h2>No posts for now!</h2>
-    <%else%>
+
     <% @places.each do |place| %>
         <div class="mb-4 card border-warning">
             <div class="border-warning rounded-2">
@@ -13,11 +11,12 @@
                 <div class="card-body">
                     <h5 class="card-title"><%=place.name%></h5>
                     <%= link_to 'View', place_path(place), class: "btn btn-primary" %>
+                    <%= link_to 'Delete', "/places/pending/" + place.id.to_s, class: "btn btn-primary" %>
                 </div>
             </div>
         </div>
     <% end %>
-<% end %>
+
 </div>
 </div>
 

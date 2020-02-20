@@ -1,24 +1,9 @@
 class AdminsController < ApplicationController
 
-    # before_action :ensure_admin, only: [:index, :show]
     before_action :authenticate_user!, :except => [ :show, :home ]
 
-        # def update_attributes(approval)
-        #     self.approval = true
-        #     save
-        # end
-        # def show
-        #     @places = Place.where(approval: false) 
-        # end
-
         def approve
-            if current_user.admin?
-                @place = Place.where(approval: false) 
-                # if can? :approve, Place
-                # @place.update_attribute(:approval, true)
-                # end
-            # render plain: "HEYYYYY"
-            end
+            @places = Place.where(approval: false)
         end
 
         def create
@@ -59,7 +44,7 @@ class AdminsController < ApplicationController
                 @place = Place.find(params[:id])
                 @place.destroy
         
-                redirect_to '/places'
+                redirect_to '/places/pending'
             end
         end
 

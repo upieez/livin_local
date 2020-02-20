@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     get '/places/creation' => 'places#creation'
 
     #Admin routes
-    get '/places/pending' => 'admins#approve', as: 'approve_admins'
+    get '/places/pending/' => 'admins#approve', as: 'approve_admins'
+    get '/places/pending/:id' => "admins#destroy"
 
     get '/places/:id' => 'places#show' , as: 'place'
     get '/places/:id/edit' => 'places#edit', as: 'edit_place'
