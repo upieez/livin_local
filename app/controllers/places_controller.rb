@@ -15,12 +15,6 @@ class PlacesController < ApplicationController
         # @places = Place.all
     end
 
-    def approve
-        if can? :approval, Project
-          @project.update_attributes approval: true
-        end
-    end
-
     def show
         require 'uri-handler'
         @place = Place.find(params[:id])
