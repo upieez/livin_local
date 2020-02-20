@@ -18,8 +18,8 @@ class PlacesController < ApplicationController
     def show
         require 'uri-handler'
         @place = Place.find(params[:id])
-        @rating = Rating.where(place_id: params[:id]).take
-        @review = Review.where(place_id: params[:id]).take
+        @ratings = Rating.where(place_id: params[:id]).take
+        @reviews = Review.where(place_id: params[:id])
     end
 
     def new
