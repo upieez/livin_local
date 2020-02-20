@@ -39,6 +39,15 @@
   margin: 10px;
  }
 
+.container{
+background-image: url(https://images.unsplash.com/photo-1541267226650-673e4bc869c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1789&q=80);
+
+}
+
+.background,.mySlides{
+  max-width:100%;
+}
+
 
  .card-columns {
     @include media-breakpoint-only(md) {
