@@ -27,6 +27,7 @@ gem 'devise'
 # gem 'mini_magick', '~> 4.8'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'cancancan'
 
 # for uri encoding to enable address input in static map
 gem 'uri-handler'
