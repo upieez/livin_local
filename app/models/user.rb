@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :review
   has_many :rating
 
+  validates :username, :login, :email, presence: true
+  validates :username, uniqueness: true
+
   attr_writer :login
 
   def login
