@@ -3,13 +3,17 @@
     <div class="col border">
     <h1><%= @place.name %></h1>
     <p>Description: <%= @place.description %></p>
-    <p>Address: <%= @place.address %></p>
-
-    </div>
+    <span id="location">
+    Address: <%= @place.address %>
     <!-- div for map image -->
       <div id = "map">
-         <img src = <%= "https://maps.googleapis.com/maps/api/staticmap?center=" + @place.name + "&zoom=20&size=600x400&markers=color:red&key=AIzaSyC0mU_z1ODp6PjIxdxewMWW9559ZzoerOA" %> alt= "Map view of location">
+         <img src = "https://maps.googleapis.com/maps/api/staticmap?center=<%= CGI.escape@place.address %>&zoom=20&size=600x400&markers=color:red&key=AIzaSyC0mU_z1ODp6PjIxdxewMWW9559ZzoerOA" alt= "Map view of location">
       </div>
+    </span>
+    <div class="btn-container">
+      <button onclick="toggle()" class = "btn btn-light" id="expand">View Location</button>
+    </div>
+    </div>
 
     <div class="col border">
     <%= cl_image_tag(@place.img_url) %>
