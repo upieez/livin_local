@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
 
     before_action :authenticate_user!, :except => [ :show, :home ]
+    # load_and_authorize_resource
 
     def home
         if user_signed_in?
@@ -11,7 +12,14 @@ class PlacesController < ApplicationController
     end
 
     def index
-        @places = Place.all
+        @places = Place.where(approval: true)
+        # @places = Place.all
+    end
+
+    def approve
+        if can? :approval, Project
+          @project.update_attributes approval: true
+        end
     end
 
     def show
@@ -84,7 +92,7 @@ class PlacesController < ApplicationController
 
     private
     def place_params
-        params.require(:place).permit(:id, :name, :description, :img_url, :address, :tag_ids => [])
+        params.require(:place).permit(:id, :name, :description, :img_url, :address, :approval, :tag_ids => [])
     end
 
     def rating_params
