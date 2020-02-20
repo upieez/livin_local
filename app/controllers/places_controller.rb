@@ -1,7 +1,6 @@
 class PlacesController < ApplicationController
 
     before_action :authenticate_user!, :except => [ :show, :home ]
-    # load_and_authorize_resource
 
     def home
         if user_signed_in?
