@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     patch '/places/:id' => 'places#update'
     delete '/places/:id' => 'places#destroy'
 
-
+    #Review routes
+    post '/places/:id' => 'reviews#create'
 
 
 end
