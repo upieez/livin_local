@@ -20,6 +20,7 @@ class PlacesController < ApplicationController
         @place = Place.find(params[:id])
         @ratings = Rating.where(place_id: params[:id]).take
         @reviews = Review.where(place_id: params[:id])
+        
     end
 
     def new

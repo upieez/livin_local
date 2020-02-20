@@ -30,37 +30,37 @@
   </div>
 <hr>
   <div class="row">
-    <div class="col text-left">
+    <div class="col text-left creation">
       <h1 >Reviews:</h1>
-
       <% if !@reviews.exists? %>
         <p>No reviews yet. Add a review here.</p>
       <% else %>
         <% @reviews.each do |review| %>
           <p><%=review.user.username %> says:</p>
-          <div class="row">
-            <div class="col-6 text-left">
-              <span><%= review.review %></span>
+            <div class="row">
+              <div class="testing col-6 text-left">
+                <span><%= review.review %></span>
+              </div>
+              <div class="col-6 text-right">
+                <span>created <%= time_ago_in_words(review.created_at) %> ago</span>
+              </div>
             </div>
-            <div class="col-6 text-right">
-              <span>created <%= time_ago_in_words(review.created_at) %> ago</span>
-            </div>
-          </div>
           <br>
-        <% end %>
-        <hr>
-      <% end %>
+            <% end %>
+          <% end %>
+      <hr>
     </div>
   </div>
   
   <br>
 
-  <%= form_with scope: :review, url: place_path, local: true do |form| %>
+  <%= form_with scope: :review, url: place_path, remote: true do |form| %>
     <div class="form-group text-left">
     <%= form.label :review %><br>
     <textarea class="form-control" type="text" name="place[review]" id="place_review"></textarea>
     </div>
-    <%= form.submit "Post Review!" %>
+
+    <%= form.submit "Post Review!", class: "submit"%>
   <% end %>
 
 <!-- div container closing -->
