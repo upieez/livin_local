@@ -46,20 +46,14 @@
   padding: 0;
   line-height: 200px;
   color: rgb(255,255,255);
-
-}
-
-#home{
-background-image: url(https://images.unsplash.com/photo-1547982982-448b6fdad3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80);
-// position:fixed;
 }
 
 #appName {
+  display: inline-block;
   z-index: 1000;
   position: relative;
   bottom: 30px;
   left: 0px;
-  width: 100%;
   text-align: center;
   opacity: 0;
   animation: titleAnimation 10s linear infinite;
@@ -72,7 +66,7 @@ background-image: url(https://images.unsplash.com/photo-1547982982-448b6fdad3a8?
 @keyframes titleAnimation {
   0% {
       opacity: 0;
-      transform: translateY(200px);
+      transform: translateY(100px);
   }
   8% {
       opacity: 1;
