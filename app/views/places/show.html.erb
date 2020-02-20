@@ -1,39 +1,45 @@
 <div class="container">
+
   <div class="row">
-    <div class="col border">
-    <h1><%= @place.name %></h1>
-    <p>Description: <%= @place.description %></p>
-    <span id="location">
-    Address: <%= @place.address %>
-    <!-- div for map image -->
-      <div id = "map">
-         <img src = "https://maps.googleapis.com/maps/api/staticmap?center=<%= CGI.escape@place.address %>&zoom=20&size=600x400&markers=color:red&key=AIzaSyC0mU_z1ODp6PjIxdxewMWW9559ZzoerOA" alt= "Map view of location">
-      </div>
-    </span>
-    <div class="btn-container">
-      <button onclick="toggle()" class = "btn btn-light" id="expand">View Location</button>
-    </div>
+    <div class="col text-left">
+      <h1><%= @place.name %></h1>
+      <p> <span id ="desc"> Description: </span>
+       <%= @place.description %></p>
+      <span id="location" class = "text-left">
+      <span id = "address"> Address:</span> <span id = "place_address"> <%= @place.address %> </span>
+      <!-- div for map image -->
+        <div id = "map">
+
+        </div>
+      </span>
+      <!-- <div class="btn-container"> -->
+        <button onclick="toggle()" class = "btn btn-info" id="expand">View Location</button>
+      <!-- </div> -->
     </div>
 
-    <div class="col border">
-    <%= cl_image_tag(@place.img_url) %>
+    <div class="col text-left">
+      <%= cl_image_tag(@place.img_url, :size => "650x500", :crop => :fill) %>
+      <h5>Rating:</h5>
+      <% if !@rating %>
+      <p>No rating yet. Add a rating here</p>
+      <% else %>
+      <%= @rating.value %>
+      <% end %>
     </div>
   </div>
-</div>
-
-<div class="row">
-  <div class="col">
-    <% if !@rating %>
-    <h1>no rating</h1>
-    <% else %>
-    <%= @rating.value %>
-    <% end %>
-
-    <% if !@review %>
-    <h1>no review</h1>
-    <% else %>
-    <%= @review.review %>
-    <% end %>
+<hr>
+  <div class="row">
+    <div class="col text-left">
+      <h1 >Reviews:</h1>
+      <% if !@review %>
+      <p>No reviews yet. Add a review here.</p>
+      <% else %>
+      <%= @review.review %>
+      <% end %>
+    </div>
   </div>
+
+<!-- div container closing -->
 </div>
+
 <%= link_to 'Back', places_path %>
