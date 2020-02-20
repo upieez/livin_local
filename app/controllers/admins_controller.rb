@@ -6,6 +6,13 @@ class AdminsController < ApplicationController
             @places = Place.where(approval: false)
         end
 
+        def update
+            @place = Place.find(params[:id])
+
+            @place.update_attribute(:approval, true)
+            redirect_to '/places/pending'
+        end
+
         def create
             if current_user.admin?
                 @place = Place.new(place_params)
