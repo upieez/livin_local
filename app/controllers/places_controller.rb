@@ -84,7 +84,7 @@ class PlacesController < ApplicationController
     end
 
     def creation
-        @places = Place.where(user_id: current_user[:id]).take
+        @places = Place.where(user_id: current_user[:id])
     end
 
     private
