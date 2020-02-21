@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :place
   has_many :review
   has_many :rating
+  has_many :favourite
 
   validates :username, :login, :email, presence: true
   validates :username, uniqueness: true
