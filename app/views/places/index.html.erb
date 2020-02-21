@@ -9,28 +9,35 @@
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Filter By </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <%@tags.each do |t| %>
-        <a class="dropdown-item" "><%=t.name%></a>
+        <a class="dropdown-item tag_names" id = <%=t.id%> > <%=t.name%></a>
     <% end %>
       </div>
 </div>
 
 <div class="row d-flex justify-content-around p-4 text-center">
-<div class="card-columns">
-
-<% @places.each do |place| %>
-    <div class="mb-4 card border-warning">
-        <div class="border-warning rounded-2">
-            <%= cl_image_tag((place.img_url), class: "card-img-top") %>
-            <div class="card-body">
-                <h5 class="card-title"><%=place.name%></h5>
-                <%= link_to 'View', place_path(place), class: "btn btn-primary" %>
+    <div class="card-columns">
+        <% @places.each do |place| %>
+            <div class="mb-4 card border-warning">
+                <div class="border-warning rounded-2">
+                    <%= cl_image_tag((place.img_url), class: "card-img-top") %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%=place.name%></h5>
+                        <%= link_to 'View', place_path(place), class: "btn btn-primary" %>
+                    </div>
+                </div>
             </div>
-        </div>
+        <% end %>
     </div>
-<% end %>
-</div>
 </div>
 
+<script>
+    let name = document.querySelector("tag_names")
+    name.addEventListener("click",getTagId)
+    function getTagId() {
+        let id = this.id
+        console.log(id)
+    }
+</script>
 
 
 

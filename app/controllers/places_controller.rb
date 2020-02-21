@@ -13,6 +13,7 @@ class PlacesController < ApplicationController
     def index
         @places = Place.where(approval: true)
         @tags = Tag.all
+
         puts "HERE ARE THE TAGS:" + @tags.inspect
     end
 
