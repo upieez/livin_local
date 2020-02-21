@@ -21,10 +21,12 @@
     <div class="col text-left">
       <%= cl_image_tag(@place.img_url, :size => "650x500", :crop => :fill) %>
       <h5>Rating:</h5>
-      <% if !@rating %>
+      <% if !@ratings.exists? %>
       <p>No rating yet. Add a rating here</p>
       <% else %>
-      <%= @rating.value %>
+      <% @ratings.each do |rating| %>
+      <%= rating.value %>
+      <% end %>
       <% end %>
     </div>
   </div>
@@ -48,8 +50,8 @@
           <br>
             <% end %>
           <% end %>
-      <hr>
-    </div>
+        
+    </div><hr>
   </div>
   
   <br>
