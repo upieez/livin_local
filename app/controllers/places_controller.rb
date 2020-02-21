@@ -38,11 +38,18 @@ class PlacesController < ApplicationController
 
         @place.user = current_user
 
-        uploaded_file = place_params[:img_url].path
+        if place_params[:img_url]
+            uploaded_file = place_params[:img_url].path
 
-        cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+            cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
 
-        @place.img_url = cloudnary_file['public_id']
+            @place.img_url = cloudnary_file['public_id']
+
+        else
+
+            @place.img_url = nil
+
+        end 
 
         @place.save
 
