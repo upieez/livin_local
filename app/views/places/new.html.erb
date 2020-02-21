@@ -32,8 +32,21 @@
             <%= form.file_field :img_url %>
         </div>
         <div class="col">
-            <%= form.label :rating %><br>
-            <%= form.number_field :value, value: 0, :min => 0, :max => 5 %>
+        <%= form.label :rating %><br>
+            <div class="star-rating">
+                <div class="star-rating__wrap">
+                    <input class="star-rating__input" id="star-rating-5" type="radio" name="value" value=<%= '5'.to_i%>>
+                    <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-5" title="5 out of 5 stars"></label>
+                    <input class="star-rating__input" id="star-rating-4" type="radio" name="value" value=<%= '4'.to_i%>>
+                    <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-4" title="4 out of 5 stars"></label>
+                    <input class="star-rating__input" id="star-rating-3" type="radio" name="value" value=<%= '3'.to_i%>>
+                    <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-3" title="3 out of 5 stars"></label>
+                    <input class="star-rating__input" id="star-rating-2" type="radio" name="value" value=<%= '2'.to_i%>>
+                    <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-2" title="2 out of 5 stars"></label>
+                    <input class="star-rating__input" id="star-rating-1" type="radio" name="value" value=<%= '1'.to_i%>>
+                    <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1" title="1 out of 5 stars"></label>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -44,27 +57,9 @@
         </div>
     </div>
 
-    <p>
-    <%= form.label :rating %><br>
-    <div class="star-rating">
-        <div class="star-rating__wrap">
-            <input class="star-rating__input" id="star-rating-5" type="radio" name="value" value=<%= '5'.to_i%>>
-            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-5" title="5 out of 5 stars"></label>
-            <input class="star-rating__input" id="star-rating-4" type="radio" name="value" value=<%= '4'.to_i%>>
-            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-4" title="4 out of 5 stars"></label>
-            <input class="star-rating__input" id="star-rating-3" type="radio" name="value" value=<%= '3'.to_i%>>
-            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-3" title="3 out of 5 stars"></label>
-            <input class="star-rating__input" id="star-rating-2" type="radio" name="value" value=<%= '2'.to_i%>>
-            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-2" title="2 out of 5 stars"></label>
-            <input class="star-rating__input" id="star-rating-1" type="radio" name="value" value=<%= '1'.to_i%>>
-            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1" title="1 out of 5 stars"></label>
-        </div>
-    </div>
-    </p>
-
     <div class="form-row">
         <div class = "col">
-            <button class="btn btn-primary" href= "/places"> Back</button>
+            
         </div>
         <div class="col">
           <%= form.submit ({:onclick => "pendingAlert()"
@@ -75,6 +70,8 @@
     </div>
       <% end %>
 
+      <a class="btn btn-primary" href= "/places"> Back</a>
+
 
 <script>
     pendingAlert = () => {
@@ -82,5 +79,4 @@
     }
 </script>
 
-  <%= link_to 'back', places_path %>
 
