@@ -26,10 +26,26 @@
 
     <hr/>
 
-    <p>
+    <%# <% arr = [1, 2, 3, 4, 5] %>
+        <%# <% arr.map do |star|%> %>
+        <%# <img src="./images/star_outline.png"> %>
+    <%# <% end %> %> %>
+
+
+    <div class="rating-stars">
+        <img src="images/star_outline.png" value="1">
+        <img src="./images/star_outline.png" value="2">
+        <img src="./images/star_outline.png" value="3">
+    
+    </div>
+
+
+
+
+    <%# <p>
         <%= form.label :rating %><br>
-        <%= form.number_field :value, value: 0, :min => 0, :max => 5 %>
-    </p>
+        <%# <%= form.number_field :value, value: 0, :min => 0, :max => 5 %>
+    <%# </p> %>
 
     <p>
         <%= form.label :review %><br>

@@ -17,3 +17,20 @@
 //= require popper
 //= require bootstrap-sprockets
 
+// $(function() {
+//     $('.rating_star').click(function() {
+//         var star = $(this);
+//         var place_id = $(this).attr('data-place-id')
+//         var stars = $(this).attr('data-stars');
+
+//         for (let i = 0; i <= 5; i++) {
+//             if (i <= stars) {
+//                 $('#' + place_id + '_' + i)addClass('on') 
+//                 { else {
+//                 $('#' + place_id + '_' + i)removeClass('on') 
+//                     }
+//                 }
+//             }
+//         }
+//     });
+// }); 
