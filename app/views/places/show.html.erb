@@ -19,7 +19,12 @@
     </div>
 
     <div class="col text-left">
+      <% if @place.img_url %>
       <%= cl_image_tag(@place.img_url, :size => "650x500", :crop => :fill) %>
+      <% else %>
+      <%= image_tag('/logo.svg', :size => "650x500", :crop => :fill) %>
+
+      <% end %>
       <h5>Rating:</h5>
       <% if !@ratings.exists? %>
       <p>No rating yet. Add a rating here</p>
