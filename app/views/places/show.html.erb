@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="row">
     <div class="col text-left">
 
@@ -50,7 +49,7 @@
           <br>
             <% end %>
           <% end %>
-        
+
     </div><hr>
   </div>
 
@@ -65,8 +64,13 @@
     <%= form.submit "Post Review!", class: "submit"%>
   <% end %>
 
-<!-- div container closing -->
-</div>
+    <%= link_to 'Edit', edit_place_path %>
 
-<%= link_to 'Edit', edit_place_path %>
-<%= link_to 'Back', places_path %>
+    <!-- if admin is logged in, back button will go back to pending posts, else back button will got to my places -->
+    <% if user_signed_in? and current_user.admin == true and @place.approval == false %>
+      <%= link_to 'Back', approve_admins_path %>
+    <%elsif user_signed_in? and @place.approval == true and @place.user_id = current_user.id%>
+      <%= link_to 'Back', places_path %>
+    <% end %>
+    </div>
+</div>
