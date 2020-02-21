@@ -15,33 +15,44 @@
  */
 
 
-// .rating_star {
-//   background: url('/images/star_outline.png') 0 0;
-//   width: 16px;
-//   height: 16px;
-//   display: block;
-//   float: right;
-// }
-
-// .on {
-//   background-position: 0 16px;
-// }
-
 .navbar-brand {
-  background-image: url("logo.png");
+  background-image: url("logo.svg");
   background-repeat: no-repeat;
   background-size: 45px 45px;
   width: 100px;
   height: 50px;
 }
 
-
-// #appName {
-//   background-image: url("appname.png");
-//   z-index: 1;
-//   width: 200px;
-//   height: auto;
-// }
+.star-rating{
+	font-size: 0;
+}
+.star-rating__wrap{
+	display: inline-block;
+	font-size: 1rem;
+}
+.star-rating__wrap:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.star-rating__ico{
+	float: right;
+	padding-left: 2px;
+	cursor: pointer;
+	color: #FFB300;
+}
+.star-rating__ico:last-child{
+	padding-left: 0;
+}
+.star-rating__input{
+	display: none;
+}
+.star-rating__ico:hover:before,
+.star-rating__ico:hover ~ .star-rating__ico:before,
+.star-rating__input:checked ~ .star-rating__ico:before
+{
+	content: "\f005";
+}
 
   $secondary-color : red;
 
@@ -67,15 +78,6 @@
  #expand {
   margin: 10px;
  }
-
-// #appName h1 {
-//   font-family: "helvetica neue", helvetica;
-//   text-transform: uppercase;
-//   font-size: 100px;
-//   padding: 0;
-//   line-height: 200px;
-//   color: rgb(255,255,255);
-// }
 
 #appName {
   background-image: url("appname.svg");
