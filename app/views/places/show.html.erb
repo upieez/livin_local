@@ -1,8 +1,7 @@
 <div class="container">
-
   <div class="row">
     <div class="col text-left">
-    <div class="pending-message">Your post is pending for admin's approval, thank you for your patience!</div>
+
       <h1><%= @place.name %></h1>
       <p> <span id ="desc"> Description: </span>
        <%= @place.description %></p>
@@ -21,50 +20,57 @@
     <div class="col text-left">
       <%= cl_image_tag(@place.img_url, :size => "650x500", :crop => :fill) %>
       <h5>Rating:</h5>
-      <% if !@rating %>
+      <% if !@ratings.exists? %>
       <p>No rating yet. Add a rating here</p>
       <% else %>
-      <%= @rating.value %>
+      <% @ratings.each do |rating| %>
+      <%= rating.value %>
+      <% end %>
       <% end %>
     </div>
   </div>
 <hr>
   <div class="row">
-    <div class="col text-left">
+    <div class="col text-left creation">
       <h1 >Reviews:</h1>
-
       <% if !@reviews.exists? %>
         <p>No reviews yet. Add a review here.</p>
       <% else %>
         <% @reviews.each do |review| %>
           <p><%=review.user.username %> says:</p>
-          <div class="row">
-            <div class="col-6 text-left">
-              <span><%= review.review %></span>
+            <div class="row">
+              <div class="testing col-6 text-left">
+                <span><%= review.review %></span>
+              </div>
+              <div class="col-6 text-right">
+                <span>created <%= time_ago_in_words(review.created_at) %> ago</span>
+              </div>
             </div>
-            <div class="col-6 text-right">
-              <span>created <%= time_ago_in_words(review.created_at) %> ago</span>
-            </div>
-          </div>
           <br>
-        <% end %>
-        <hr>
-      <% end %>
-    </div>
+            <% end %>
+          <% end %>
+
+    </div><hr>
   </div>
-  
+
   <br>
 
-  <%= form_with scope: :review, url: place_path, local: true do |form| %>
+  <%= form_with scope: :review, url: place_path, remote: true do |form| %>
     <div class="form-group text-left">
     <%= form.label :review %><br>
     <textarea class="form-control" type="text" name="place[review]" id="place_review"></textarea>
     </div>
-    <%= form.submit "Post Review!" %>
+
+    <%= form.submit "Post Review!", class: "submit"%>
   <% end %>
 
-<!-- div container closing -->
-</div>
+    <%= link_to 'Edit', edit_place_path %>
 
-<%= link_to 'Edit', edit_place_path %>
-<%= link_to 'Back', places_path %>
+    <!-- if admin is logged in, back button will go back to pending posts, else back button will got to my places -->
+    <% if user_signed_in? and current_user.admin == true and @place.approval == false %>
+      <%= link_to 'Back', approve_admins_path %>
+    <%elsif user_signed_in? and @place.approval == true and @place.user_id = current_user.id%>
+      <%= link_to 'Back', places_path %>
+    <% end %>
+    </div>
+</div>

@@ -10,8 +10,17 @@ class ReviewsController < ApplicationController
         @review = Review.new(review_params)
         @review.user = current_user
         @review.place_id = params[:id]
-        @review.save
-        redirect_to '/places/' + params[:id].to_s
+        
+        respond_to do |format|
+
+            if @review.save
+                format.html { redirect_to '/places/' + params[:id].to_s }
+                format.js 
+                format.json { render :place, status: :created, location: @review }
+            else
+                format.html { redirect_to '/places'}
+            end
+        end
     end
 
     private

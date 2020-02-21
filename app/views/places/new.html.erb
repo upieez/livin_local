@@ -1,30 +1,48 @@
-<h1>This is the new page</h1>
+<h1 class = "text-center">Add a place</h1>
 
-<%= form_with scope: :place, url: places_path, local: true do |form| %>
-
-    <p>
-        <%= form.label :name %><br>
-        <%= form.text_field :name %>
-    </p>
-
-    <p>
-        <%= form.label :description %><br>
-        <%= form.text_field :description %>
-    </p>
-
-    <p>
-        <%= form.label :address %><br>
+<div id= "newForm" class = "container">
+    <div class="form-row">
+        <div class="col">
+         <%= form_with scope: :place, url: places_path, local: true do |form| %>
+            <%= form.label :name %><br>
+            <%= form.text_field :name %>
+        </div>
+        <div class="col">
+            <%= form.label :address %><br>
         <!-- input type is needed for places api -->
-        <input type="text" name="place[address]" id="autocomplete">
+            <input type="text" name="place[address]" id="autocomplete">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <%= form.label :description %><br>
+            <input type="text" name="place[description]" id="place_desc">
 
-    </p>
+        </div>
+        <div class="col">
+            <%= form.label :review %><br>
+            <!-- input type is a workaround for the activerecord  -->
+            <input type="text" name="place[review]" id="place_review">
+        </div>
+    </div>
 
-    <p>
-            <%= form.label :images %><br>
+    <div class="form-row">
+        <div class="col">
+           <%= form.label :images %><br>
             <%= form.file_field :img_url %>
-    </p>
+        </div>
+        <div class="col">
+            <%= form.label :rating %><br>
+            <%= form.number_field :value, value: 0, :min => 0, :max => 5 %>
+        </div>
+    </div>
 
-    <hr/>
+    <div class="form-row">
+        <div class="col-4">
+          <%= form.label :tags  %><br>
+          <%= form.collection_check_boxes :tag_ids, @tags, :id, :name %>
+        </div>
+    </div>
 
     <p>
     <%= form.label :rating %><br>
@@ -44,17 +62,25 @@
     </div>
     </p>
 
-    <p>
-        <%= form.label :review %><br>
-        <input type="text" name="place[review]" id="place_review">
-    </p>
+    <div class="form-row">
+        <div class = "col">
+            <button class="btn btn-primary" href= "/places"> Back</button>
+        </div>
+        <div class="col">
+          <%= form.submit ({:onclick => "pendingAlert()"
+          }) %>
+<!--
+          <input type="submit" name="commit" value="Save Place" onclick="pendingAlert()" data-disable-with="Save Place"> -->
+        </div>
+    </div>
+      <% end %>
 
-    <p>
-    <%= form.collection_check_boxes :tag_ids, @tags, :id, :name %>
-    </p>
-    <p>
-      <%= form.submit %>
-    </p>
-  <% end %>
+
+<script>
+    pendingAlert = () => {
+            alert('Post submitted! It is now pending Admin approval.')
+    }
+</script>
 
   <%= link_to 'back', places_path %>
+

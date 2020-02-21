@@ -1,0 +1,5 @@
+console.log("create.js.erb file");
+
+$(".creation").append(`<p><%= @review.user.username %> says: </p><div class='row'> <div class='testing col-6 text-left'><%= @review.review %></div><div class='col-6 text-right'><span>created <%= time_ago_in_words(@review.created_at) %> ago</span></div></div></p>`);
+
+$("#place_review").val("")
