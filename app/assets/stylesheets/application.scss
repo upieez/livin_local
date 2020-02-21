@@ -18,7 +18,7 @@
   padding-left: 10px;
 }
 
-.navbar-brand{
+.navbar-brand {
   width: 45px;
   height: auto;
 }
@@ -92,24 +92,29 @@
 #appName {
   background-image: url("appname.svg");
   background-repeat: no-repeat;
-  background-size: 500px auto;
+  background-size: 300px auto;
   background-position: center;
-  padding-top: 50px;
-  width: 1000px;
-  height: 500px;
+  width: 100%;
+  height: auto;
 
   display: inline-block;
-  z-index: 1000;
   position: relative;
-  bottom: 30px;
-  left: 0px;
-  text-align: center;
   opacity: 0;
   animation: titleAnimation 1s linear forwards;
   -webkit-animation: titleAnimation 1s linear forwards;
   -moz-animation: titleAnimation 1s linear forwards;
   -o-animation: titleAnimation 1s linear forwards;
   -ms-animation: titleAnimation 1s linear forwards;
+}
+
+#tagline {
+  font-family: avenir, sans-serif;
+  font-size: 13px;
+  color: #82514a;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  padding-top: 150px;
+  text-align: center;
 }
 
 @keyframes titleAnimation {
