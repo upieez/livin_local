@@ -1,4 +1,4 @@
-<h1>This is the new page</h1>
+<h1>Add a place</h1>
 
 <%= form_with scope: :place, url: places_path, local: true do |form| %>
 
@@ -40,8 +40,14 @@
     <%= form.collection_check_boxes :tag_ids, @tags, :id, :name %>
     </p>
     <p>
-      <%= form.submit %>
+      <%= form.submit ({:onclick => "pendingAlert()"}) %>
     </p>
   <% end %>
+
+<script>
+    pendingAlert = () => {
+            alert('Post submitted! It is now pending Admin approval.')
+    }
+</script>
 
   <%= link_to 'back', places_path %>
