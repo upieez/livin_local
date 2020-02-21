@@ -41,7 +41,7 @@ class PlacesController < ApplicationController
         if place_params[:img_url]
             uploaded_file = place_params[:img_url].path
 
-            cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+            cloudnary_file = Cloudinary::Uploader.upload(uploaded_file, :allowed_formats => ["png", "jpeg", "jpg"])
 
             @place.img_url = cloudnary_file['public_id']
 
