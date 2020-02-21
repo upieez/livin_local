@@ -79,7 +79,6 @@
 
 #newForm{
   margin: 0 auto;
-
 }
 
 #appName {
@@ -114,6 +113,11 @@
       opacity: 1;
       transform: translateY(0px);
   }
+}
+
+#filter{
+  padding: 10px;
+
 }
 
  .card-columns {

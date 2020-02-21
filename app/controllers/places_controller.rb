@@ -12,7 +12,8 @@ class PlacesController < ApplicationController
 
     def index
         @places = Place.where(approval: true)
-        # @places = Place.all
+        @tags = Tag.all
+        puts "HERE ARE THE TAGS:" + @tags.inspect
     end
 
     def show
@@ -49,7 +50,7 @@ class PlacesController < ApplicationController
 
             @place.img_url = nil
 
-        end 
+        end
 
         @place.save
 
