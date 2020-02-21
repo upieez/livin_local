@@ -12,7 +12,8 @@ class PlacesController < ApplicationController
 
     def index
         @places = Place.where(approval: true)
-        # @places = Place.all
+        @tags = Tag.all
+        puts "HERE ARE THE TAGS:" + @tags.inspect
     end
 
     def show
@@ -41,7 +42,7 @@ class PlacesController < ApplicationController
         if place_params[:img_url]
             uploaded_file = place_params[:img_url].path
 
-            cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+            cloudnary_file = Cloudinary::Uploader.upload(uploaded_file, :allowed_formats => ["png", "jpeg", "jpg"])
 
             @place.img_url = cloudnary_file['public_id']
 
@@ -49,7 +50,7 @@ class PlacesController < ApplicationController
 
             @place.img_url = nil
 
-        end 
+        end
 
         @place.save
 

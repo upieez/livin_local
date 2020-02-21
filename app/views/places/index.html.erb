@@ -4,8 +4,19 @@
 <h1 class = "text-center">Hello <%= current_user[:username] %>!</h1>
 <%end%>
 
+    <!-- filter by tags -->
+<div class="dropdown" id = "filter">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Filter By </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <%@tags.each do |t| %>
+        <a class="dropdown-item" "><%=t.name%></a>
+    <% end %>
+      </div>
+</div>
+
 <div class="row d-flex justify-content-around p-4 text-center">
 <div class="card-columns">
+
 <% @places.each do |place| %>
     <div class="mb-4 card border-warning">
         <div class="border-warning rounded-2">

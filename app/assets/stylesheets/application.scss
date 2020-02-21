@@ -18,7 +18,8 @@
   padding-left: 10px;
 }
 
-.navbar-brand {
+
+.navbar-brand{
   width: 45px;
   height: auto;
 }
@@ -86,7 +87,6 @@
 
 #newForm{
   margin: 0 auto;
-
 }
 
 #appName {
@@ -126,6 +126,11 @@
       opacity: 1;
       transform: translateY(0px);
   }
+}
+
+#filter{
+  padding: 10px;
+
 }
 
  .card-columns {
