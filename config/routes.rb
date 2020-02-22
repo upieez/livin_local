@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root 'places#home'
     get '/places' => 'places#index', as: 'places'
+    # post method if user filter places by tag name
+    post '/places' => 'places#index'
     get '/places/new' => 'places#new', as: 'new_place'
     post '/places' => 'places#create'
     get '/places/creation' => 'places#creation', as: 'places_creation'

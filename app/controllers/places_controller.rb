@@ -11,17 +11,26 @@ class PlacesController < ApplicationController
     end
 
     def index
+# by default, index shows all places by all users
+# if user filters by tag name, index will show places that are tagged with the chosen tag => create query string params
         @places = Place.where(approval: true)
         @tags = Tag.all
-
         puts "HERE ARE THE TAGS:" + @tags.inspect
+
+        # if params[:tag_id] ==
+        #   @users = User.activated
+        # else
+        #   @users = User.inactivated
+        # end
+
     end
 
     def show
-        require 'uri-handler'
         @place = Place.find(params[:id])
+        @username = current_user.username
         @ratings = Rating.where(place_id: params[:id])
         @reviews = Review.where(place_id: params[:id])
+        puts "THIS IS THE CURRENT USER:" + @username.inspect
     end
 
     def new
