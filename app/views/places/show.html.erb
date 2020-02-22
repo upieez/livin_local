@@ -22,15 +22,63 @@
       <%= cl_image_tag(@place.img_url, :size => "650x500", :crop => :fill) %>
       <% else %>
       <%= image_tag('/logo.svg', :size => "650x500", :crop => :fill) %>
-
       <% end %>
+
       <h5>Rating:</h5>
       <% if !@ratings.exists? %>
-      <p>No rating yet. Add a rating here</p>
+      <p>No rating given.</p>
       <% else %>
       <% @ratings.each do |rating| %>
-      <%= rating.value %>
-      <% end %>
+        <% if rating.value == 5 %>
+          <div class="stars">
+            <img src="/star_icon.svg">
+            <img src="/star_icon.svg">
+            <img src="/star_icon.svg">
+            <img src="/star_icon.svg">
+            <img src="/star_icon.svg">
+          </div>
+        <% end %>
+
+        <% if rating.value == 4 %>
+          <div class="stars">
+            <img src="/star_icon.svg">
+            <img src="/star_icon.svg">
+            <img src="/star_icon.svg">
+            <img src="/star_icon.svg">
+            <img src="/star_outline.svg">
+          </div>
+        <% end %>
+
+        <% if rating.value == 3 %>
+          <div class="stars">
+            <img src="/star_icon.svg">
+            <img src="/star_icon.svg">
+            <img src="/star_icon.svg">
+            <img src="/star_outline.svg">
+            <img src="/star_outline.svg">
+           </div>
+        <% end %>
+
+        <% if rating.value == 2 %>
+          <div class="stars">
+            <img src="/star_icon.svg">
+            <img src="/star_icon.svg">
+            <img src="/star_outline.svg">
+            <img src="/star_outline.svg">
+            <img src="/star_outline.svg">
+          </div>
+        <% end %>
+
+        <% if rating.value == 1 %>
+          <div class="stars">
+            <img src="/star_icon.svg">
+            <img src="/star_outline.svg">
+            <img src="/star_outline.svg">
+            <img src="/star_outline.svg">
+            <img src="/star_outline.svg">
+          </div>
+        <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>
