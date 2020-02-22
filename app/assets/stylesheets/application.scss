@@ -84,7 +84,7 @@
   }
 }
 
-/****************************** LOG IN ******************************/
+/****************************** SHOW RATINGS ******************************/
 .stars {
   max-width: 30%;
   height: auto;
@@ -97,6 +97,132 @@
   padding-right: 5px;
 }
 
+/****************************** SIGN UP PAGE ******************************/
+///// title /////
+.title {
+  width: 150px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.graphic {
+  width: 170px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+
+/****************************** LOG IN PAGE ******************************/
+.login-graphic {
+  width: 320px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+
+.login-field {
+  font-family: avenir, sans-serif;
+  margin: 0 auto;
+  padding-left: 470px; 
+  padding-top: 40px;
+}
+
+.rem-me {
+  font-family: avenir, sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  text-align: center;
+  padding-left: 96px;
+}
+
+#login-btn {
+  border-radius: 10px;
+  font-family: avenir, sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  padding-top: 30px;
+  max-width: 5%;
+}
+
+.links {
+  font-family: avenir, sans-serif;
+  font-size: 14px;
+  margin: 0 auto;
+  max-width: 30%;
+  text-align: left;
+  padding-top: 2px;
+  padding-left: 200px;
+}
+
+
+/****************************** FORM ******************************/
+///// form (overall) /////
+.label-field {
+  display: flex;
+}
+
+.form-label {
+  font-family: avenir, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #82514a;
+  padding-right: 10px;
+  padding-top: 2px;
+}
+
+.form-field {
+  padding-bottom: 10px;
+}
+
+///// username /////
+.first-field {
+  font-family: avenir, sans-serif;
+  margin: 0 auto;
+  padding-left: 590px; 
+  padding-top: 40px;
+}
+
+///// email /////
+.second-field {
+  font-family: avenir, sans-serif;
+  margin: 0 auto;
+  padding-left: 624px; 
+}
+
+///// password /////
+.third-field {
+  font-family: avenir, sans-serif;
+  margin: 0 auto;
+  padding-left: 595px; 
+}
+
+///// password (confirm) /////
+.fourth-field {
+  font-family: avenir, sans-serif;
+  margin: 0 auto;
+  padding-left: 496px; 
+}
+
+///// password instruction /////
+.min-password {
+  font-family: avenir, sans-serif;
+  font-size: 16px;
+  color: grey;
+  padding-left: 10px;
+  padding-top: 2px;
+}
+
+///// signup-btn /////
+.signup-btn {
+  border-radius: 10px;
+  font-family: avenir, sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  padding-top: 20px;
+  max-width: 5%;
+}
 
 
 $secondary-color : red;

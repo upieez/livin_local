@@ -1,12 +1,17 @@
-<h2>Sign up</h2>
+<div class="title"><img src="/signup-title.svg"></div>
+<div class="graphic"><img src="/signup-people.svg"></div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <% # THIS IS TO SHOW ALL THE ERROR MESSAGES IN ONE BLOCK DO NOT DELETE -SAM %>
   <% # <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field mb-3">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+
+<div class="first-field">
+  <div class="label-field">
+    <div class="form-label"><%= f.label :username %></div>
+    <div class="form-field"><%= f.text_field :username, autofocus: true, autocomplete: "username" %></div>
+  </div>
+  <div class="err-msg">
     <% if resource.errors.messages[:username][0] %>
     <small>Username <%= resource.errors.messages[:username][0] %> </small>
     <% if resource.errors.messages[:username][1] %>
@@ -14,45 +19,47 @@
     <% end %>
     <% end %>
   </div>
+</div>
 
-  <div class="field mb-3">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+
+<div class="second-field">
+  <div class="label-field">
+    <div class="form-label"><%= f.label :email %></div>
+    <div class="form-field"><%= f.email_field :email, autocomplete: "email" %></div>
+  </div>
     <% if resource.errors.messages[:email][0] %>
     <small>Email <%= resource.errors.messages[:email][0] %></small>
     <% end %>
-  </div>
+</div>
 
-  <div class="field mb-3">
-    <%= f.label :password %><br />
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+
+<div class="third-field">
+  <div class="label-field">
+    <div class="form-label"><%= f.label :password %></div>
+    <div class="form-field"><%= f.password_field :password, autocomplete: "new-password" %></div>
+      <% if @minimum_password_length %>
+      <em class="min-password">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+  </div>
+  
     <% if resource.errors.messages[:password][0] %>
     <small>Password <%= resource.errors.messages[:password][0] %></small>
     <% end %>
-  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+<div class="fourth-field">
+  <div class="label-field">
+    <div class="form-label"><%= f.label :password_confirmation %></div>
+    <div class="form-field"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
     <% if resource.errors.messages[:password_confirmation][0] %>
     <small>It <%= resource.errors.messages[:password_confirmation][0] %> </small>
     <% end %>
   </div>
+</div>
 
 
-
-  <br />
-
-  <div class="actions btn btn-success">
-    <%= f.submit "Sign up" %>
-  </div>
-
-  <br />
-  
+<div class="signup-btn"><%= f.submit "Sign Up" %></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
 
