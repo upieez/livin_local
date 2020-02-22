@@ -12,8 +12,10 @@ class PlacesController < ApplicationController
 
     def index
         if params[:tag_id].present?
-        # {"tag_id" => :tag_id}.to_query
-            @places= @products.filter_by_tag(params[:tag_id])
+            @tag_request = params(place["tag_id"])
+            puts "TAG CHOSEN:"+ @tag_request.to_s
+            @tag = Tag.find(name: tag_request)
+            @places = @tag.places
         else
             @places = Place.where(approval: true)
             @tags = Tag.all

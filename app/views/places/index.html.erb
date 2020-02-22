@@ -5,11 +5,11 @@
 <%end%>
 
     <!-- filter by tags -->
-<form method = "POST" action="/places?tag_id=">
+<form method = "POST" action= "/places?tag_id">
   <div class="form-row align-items-center" id = "tagName">
     <div class="col-auto my-1">
         <p> Filter By:</p>
-      <select name = "place[tag_id]" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+      <select name = "place[tag_id]" class="custom-select mr-sm-2" id="tags" onchange="this.form.submit()">
             <option selected>Choose...</option>
             <%@tags.each do |t| %>
             <option value=<%=t.id%>><%=t.name%></option>
@@ -34,4 +34,6 @@
         <% end %>
     </div>
 </div>
+<script>
 
+</script>
