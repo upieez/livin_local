@@ -5,32 +5,36 @@
 <%end%>
 
     <!-- filter by tags -->
-<div class="dropdown" id = "filter">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Filter By </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <%@tags.each do |t| %>
-        <a class="dropdown-item"><%=t.name%></a>
-    <% end %>
-      </div>
-</div>
+<form method = "POST" action= "/places?tag_id">
+  <div class="form-row align-items-center" id = "tagName">
+    <div class="col-auto my-1">
+        <p> Filter By:</p>
+      <select name = "place[tag_id]" class="custom-select mr-sm-2" id="tags" onchange="this.form.submit()">
+            <option selected>Choose...</option>
+            <%@tags.each do |t| %>
+            <option value=<%=t.id%>><%=t.name%></option>
+            <% end %>
+      </select>
+    </div>
+  </div>
+</form>
+
 
 <div class="row d-flex justify-content-around p-4 text-center">
-<div class="card-columns">
-
-<% @places.each do |place| %>
-    <div class="mb-4 card border-warning">
-        <div class="border-warning rounded-2">
-            <%= cl_image_tag((place.img_url), class: "card-img-top") %>
-            <div class="card-body">
-                <h5 class="card-title"><%=place.name%></h5>
-                <%= link_to 'View', place_path(place), class: "btn btn-primary" %>
+    <div class="card-columns">
+        <% @places.each do |place| %>
+            <div class="mb-4 card border-warning">
+                <div class="border-warning rounded-2">
+                    <%= cl_image_tag((place.img_url), class: "card-img-top") %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%=place.name%></h5>
+                        <%= link_to 'View', place_path(place), class: "btn btn-primary" %>
+                    </div>
+                </div>
             </div>
-        </div>
+        <% end %>
     </div>
-<% end %>
 </div>
-</div>
+<script>
 
-
-
-
+</script>

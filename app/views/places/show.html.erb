@@ -3,6 +3,8 @@
     <div class="col text-left">
 
       <h1><%= @place.name %></h1>
+      <!-- display name of user who posted specific place_id -->
+      <p>By: <a href="/places/user/<%= @user_id%>" > <%= @creator.username%></a></p>
       <p> <span id ="desc"> Description: </span>
        <%= @place.description %></p>
       <span id="location" class = "text-left">

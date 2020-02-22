@@ -11,16 +11,42 @@ class PlacesController < ApplicationController
     end
 
     def index
-        @places = Place.where(approval: true)
-        @tags = Tag.all
+        if params[:tag_id].present?
+            @tag_request = params(place["tag_id"])
+            puts "TAG CHOSEN:"+ @tag_request.to_s
+            @tag = Tag.find(name: tag_request)
+            @places = @tag.places
+        else
+            @places = Place.where(approval: true)
+            @tags = Tag.all
+        end
         puts "HERE ARE THE TAGS:" + @tags.inspect
     end
 
+    def user
+        # get the places posted by a specific user
+        @user = User.find(params[:user_id])
+        puts "USER:"+ @user.to_s
+        puts "USER ID:"+ @user.id.to_s
+
+        @places = Place.where user_id: @user.id
+        puts @places.inspect
+
+    end
+
     def show
-        require 'uri-handler'
         @place = Place.find(params[:id])
+        # gets username of logged in user
+        @username = current_user.username
+        # gets user_id of user who created/posted a place
+        @user_id = @place.user_id
+        @creator = User.find( @user_id )
         @ratings = Rating.where(place_id: params[:id])
         @reviews = Review.where(place_id: params[:id])
+        puts "THIS IS THE CURRENT USER:" + @username.inspect
+        puts "THIS IS THE USER ID OF POST CREATOR:" + @user_id.to_s
+
+
     end
 
     def new
