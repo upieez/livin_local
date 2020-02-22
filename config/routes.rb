@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/places/new' => 'places#new', as: 'new_place'
     post '/places' => 'places#create'
     get '/places/creation' => 'places#creation', as: 'places_creation'
+    get '/places/user/:user_id' => 'places#user', as: 'places_user'
 
     #Admin routes
     get '/places/pending/' => 'admins#approve', as: 'approve_admins'

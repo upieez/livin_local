@@ -11,26 +11,38 @@ class PlacesController < ApplicationController
     end
 
     def index
-# by default, index shows all places by all users
-# if user filters by tag name, index will show places that are tagged with the chosen tag => create query string params
-        @places = Place.where(approval: true)
-        @tags = Tag.all
+        if params[:tag_id].present?
+        # {"tag_id" => :tag_id}.to_query
+            @places= @products.filter_by_tag(params[:tag_id])
+        else
+            @places = Place.where(approval: true)
+            @tags = Tag.all
+        end
         puts "HERE ARE THE TAGS:" + @tags.inspect
+    end
 
-        # if params[:tag_id] ==
-        #   @users = User.activated
-        # else
-        #   @users = User.inactivated
-        # end
+    def user
+        # get the places posted by a specific user
+        @user = User.find_by username:
+        @user_id = @user.id
+        puts "USER ID:"+ @user_id.to_s
+        @place = Place.find_by user_id: @user_id
 
     end
 
     def show
         @place = Place.find(params[:id])
+        # gets username of logged in user
         @username = current_user.username
+        # gets user_id of user who created/posted a place
+        @user_id = @place.user_id
+        @creator = User.find( @user_id )
         @ratings = Rating.where(place_id: params[:id])
         @reviews = Review.where(place_id: params[:id])
         puts "THIS IS THE CURRENT USER:" + @username.inspect
+        puts "THIS IS THE USER ID OF POST CREATOR:" + @user_id.to_s
+
+
     end
 
     def new
