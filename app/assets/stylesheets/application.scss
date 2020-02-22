@@ -14,16 +14,18 @@
  *= require_self
  */
 
-#logo {
+
+/****************************** NAV BAR ******************************/
+ #logo {
   padding-left: 10px;
 }
-
 
 .navbar-brand{
   width: 45px;
   height: auto;
 }
 
+/****************************** RATING ******************************/
 .star-rating{
 	font-size: 0;
 }
@@ -55,7 +57,38 @@
 	content: "\f005";
 }
 
-  $secondary-color : red;
+/****************************** HOME PAGE BUTTONS ******************************/
+#login {
+  border-radius: 5px;
+  font-family: avenir, sans-serif;
+  color: #82514a;
+  border-color: #82514a;
+
+    &:hover {
+    background-color: #82514a;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+#signup {
+  border-radius: 5px;
+  font-family: avenir, sans-serif;
+  color: #ff4817;
+  border-color: #ff4817;
+
+  &:hover {
+    background-color: #ff4817;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.navbar {
+  background: white;
+}
+
+$secondary-color : red;
 
  @import "bootstrap";
 
