@@ -23,10 +23,12 @@ class PlacesController < ApplicationController
 
     def user
         # get the places posted by a specific user
-        @user = User.find_by username:
-        @user_id = @user.id
-        puts "USER ID:"+ @user_id.to_s
-        @place = Place.find_by user_id: @user_id
+        @user = User.find(params[:user_id])
+        puts "USER:"+ @user.to_s
+        puts "USER ID:"+ @user.id.to_s
+
+        @places = Place.where user_id: @user.id
+        puts @places.inspect
 
     end
 
