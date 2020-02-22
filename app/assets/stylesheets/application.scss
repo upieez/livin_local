@@ -84,9 +84,20 @@
   }
 }
 
-.navbar {
-  background: white;
+/****************************** LOG IN ******************************/
+.stars {
+  max-width: 30%;
+  height: auto;
+  display: flex;
 }
+
+.stars img {
+  max-width: 15%;
+  height: auto;
+  padding-right: 5px;
+}
+
+
 
 $secondary-color : red;
 
