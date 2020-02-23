@@ -164,6 +164,24 @@
 }
 
 
+//My Places
+.create-new {
+  font-family: avenir, sans-serif;
+  font-size: 20px;
+  color: rgb(165, 165, 165);
+  text-align: center;
+  padding-top: 50px;
+}
+
+//Places went
+.places-went-title {
+  width: 270px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+
 /****************************** FORM ******************************/
 ///// form (overall) /////
 .label-field {
@@ -334,8 +352,9 @@ $secondary-color : red;
 .card-title {
   font-family: avenir, sans-serif;
   font-size: 16px;
-  color: white;
+  color: grey;
   text-align: left;
+  padding-top: 10px;
 }
 
  .card-columns {
@@ -350,13 +369,21 @@ $secondary-color : red;
     }
   }
 
-  .card-img, .card-img-top {
+
+  .card-img {
     border-radius: 25px;
   }
 
-  .card {
-    // border-radius: 1.5rem;
+  .card  {
     border: none;
+    padding-bottom: 10px;
+    max-width: 95%; 
+
+
+    &:hover {;
+      z-index: 1;
+      opacity: 0.5;
+    }
   }
 
   .field_with_errors {
