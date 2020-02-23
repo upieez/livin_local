@@ -1,6 +1,8 @@
 class PlacesController < ApplicationController
 
     before_action :authenticate_user!, :except => [ :show, :home ]
+    protect_from_forgery :except => [:index]
+
 
     def home
         if user_signed_in?
@@ -11,16 +13,24 @@ class PlacesController < ApplicationController
     end
 
     def index
-        if params[:tag_id].present?
-            @tag_request = params(place["tag_id"])
-            puts "TAG CHOSEN:"+ @tag_request.to_s
-            @tag = Tag.find(name: tag_request)
-            @places = @tag.places
+        if  params[:tag_id].present?
+            # to still be able to display all tag names
+            @tags = Tag.all
+
+            # get tag_id chosen bys user
+            @tag_id = params[:tag_id]
+
+            # get the places with the tag chosen by user
+            # @places = Place.joins(:tag).where(:tag => {:id => @tag_id})
+            @places = Place.joins(:tag).where(:tag_id => @tag_id)
+
+            puts "INSPECTING PLACES:" + @places.inspect
+
         else
             @places = Place.where(approval: true)
             @tags = Tag.all
+            puts "HERE ARE THE TAGS:" + @tags.inspect
         end
-        puts "HERE ARE THE TAGS:" + @tags.inspect
     end
 
     def user
