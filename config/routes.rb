@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     root 'places#home'
     get '/places' => 'places#index', as: 'places'
     # post method if user filter places by tag name
-    post '/places?tag_id=tag_id' => 'places#index'
+    get '/places?tag_id=:tag_id' => 'places#index', as: "places_filter"
+    # testing diff routes
+    # get '/places?tag_id' => 'places#index'
     get '/places/new' => 'places#new', as: 'new_place'
     post '/places' => 'places#create'
     get '/places/creation' => 'places#creation', as: 'places_creation'
