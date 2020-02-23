@@ -115,6 +115,13 @@
 
 
 /****************************** LOG IN PAGE ******************************/
+.login-title {
+  width: 130px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
 .login-graphic {
   width: 320px;
   height: auto;
@@ -224,6 +231,21 @@
   max-width: 5%;
 }
 
+.nav-link {
+  font-family: avenir, sans-serif;
+  font-size: 18px;
+}
+
+
+.text-center {
+  font-family: avenir, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #82514a;
+  text-align: center;
+  padding-top: 50px;
+}
+
 
 $secondary-color : red;
 
@@ -298,9 +320,33 @@ $secondary-color : red;
   }
 }
 
+
+#dropdownMenuButton {
+  background-color: #ff4817;
+  border: none;
+}
+
+#filter{
+  padding-left: 100px;
+  padding-top: 20px;
+  font-family: avenir, sans-serif;
+}
+
+#card-container {
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
+
 #tagName{
   padding: 10px;
 
+
+.card-title {
+  font-family: avenir, sans-serif;
+  font-size: 16px;
+  color: white;
+  text-align: left;
 }
 
  .card-columns {
@@ -316,12 +362,12 @@ $secondary-color : red;
   }
 
   .card-img, .card-img-top {
-    border-top-left-radius: 23px;
-    border-top-right-radius: 23px;
+    border-radius: 25px;
   }
 
   .card {
-    border-radius: 1.5rem;
+    // border-radius: 1.5rem;
+    border: none;
   }
 
   .field_with_errors {
@@ -330,6 +376,5 @@ $secondary-color : red;
         border-radius: 10px;
         border: 1px solid $secondary-color;
     }
-
   }
 
