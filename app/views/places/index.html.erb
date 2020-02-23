@@ -1,5 +1,5 @@
 <%if current_user.admin == true%>
-<h1 class="text-center">Hello admin, <%= current_user[:username] %>!</h1>
+<h1 class="text-center">Hello admin, <%= current_user[:username] %>! 🙌🏼</h1>
 <%else%>
 <h1 class="text-center">Welcome back, <%= current_user[:username] %>! 👋🏼</h1>
 <%end%>
@@ -22,16 +22,11 @@
 
 <div id="card-container" class="row d-flex justify-content-around p-4 text-center">
 <div class="card-columns">
-
     <% @places.each do |place| %>
         <a href="/places/<%= place.id %>">
             <div class="card bg-transparent text-white">
-                <img class="card-img" src<%= cl_image_tag(place.img_url) %>>
-                <div class="card-img-overlay">
-                    <h5 class="card-title d-flex"><%=place.name%></h5>
-                    <%# <p class="card-text">Created by: </p>
-                    <%# <p class="card-text">Last updated 3 mins ago</p> %>
-                </div>
+                <img class="card-img" src<%= cl_image_tag(place.img_url) %>
+                <h5 class="card-title d-flex"><%=place.name%></h5>
             </div>
         </a>
     <% end %>
