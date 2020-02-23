@@ -5,14 +5,19 @@
 <%end%>
 
     <!-- filter by tags -->
-<div class="dropdown" id = "filter">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Filter By </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <%@tags.each do |t| %>
-        <a class="dropdown-item"><%=t.name%></a>
-    <% end %>
-      </div>
-</div>
+<form method = "GET" action= '/places?tag_id='>
+  <div class="form-row align-items-center" id = "tagName">
+    <div class="col-auto my-1">
+        <p> Filter By:</p>
+      <select name = "tag_id" class="custom-select mr-sm-2" id="places[tags]" onchange="this.form.submit()">
+            <option selected>Choose...</option>
+            <%@tags.each do |t| %>
+            <option value=<%=t.id%>><%=t.name%></option>
+            <% end %>
+      </select>
+    </div>
+  </div>
+</form>
 
 
 <div id="card-container" class="row d-flex justify-content-around p-4 text-center">
@@ -31,8 +36,6 @@
         </a>
     <% end %>
 </div>
-</div>
+<script>
 
-
-
-
+</script>

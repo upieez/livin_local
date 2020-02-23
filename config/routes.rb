@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root 'places#home'
     get '/places' => 'places#index', as: 'places'
+    # post method if user filter places by tag name
+    get '/places?tag_id=:tag_id' => 'places#index', as: "places_filter"
+    # testing diff routes
+    # get '/places?tag_id' => 'places#index'
     get '/places/new' => 'places#new', as: 'new_place'
     post '/places' => 'places#create'
     get '/places/creation' => 'places#creation', as: 'places_creation'
+    get '/places/user/:user_id' => 'places#user', as: 'places_user'
 
     #Admin routes
     get '/places/pending/' => 'admins#approve', as: 'approve_admins'

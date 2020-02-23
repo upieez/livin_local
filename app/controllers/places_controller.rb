@@ -1,6 +1,8 @@
 class PlacesController < ApplicationController
 
     before_action :authenticate_user!, :except => [ :show, :home ]
+    protect_from_forgery :except => [:index]
+
 
     def home
         if user_signed_in?
@@ -11,16 +13,50 @@ class PlacesController < ApplicationController
     end
 
     def index
-        @places = Place.where(approval: true)
-        @tags = Tag.all
-        puts "HERE ARE THE TAGS:" + @tags.inspect
+        if  params[:tag_id].present?
+            # to still be able to display all tag names
+            @tags = Tag.all
+
+            # get tag_id chosen bys user
+            @tag_id = params[:tag_id]
+
+            # get the places with the tag chosen by user
+            # @places = Place.joins(:tag).where(:tag => {:id => @tag_id})
+            @places = Place.joins(:tag).where(:tag_id => @tag_id)
+
+            puts "INSPECTING PLACES:" + @places.inspect
+
+        else
+            @places = Place.where(approval: true)
+            @tags = Tag.all
+            puts "HERE ARE THE TAGS:" + @tags.inspect
+        end
+    end
+
+    def user
+        # get the places posted by a specific user
+        @user = User.find(params[:user_id])
+        puts "USER:"+ @user.to_s
+        puts "USER ID:"+ @user.id.to_s
+
+        @places = Place.where user_id: @user.id
+        puts @places.inspect
+
     end
 
     def show
-        require 'uri-handler'
         @place = Place.find(params[:id])
+        # gets username of logged in user
+        @username = current_user.username
+        # gets user_id of user who created/posted a place
+        @user_id = @place.user_id
+        @creator = User.find( @user_id )
         @ratings = Rating.where(place_id: params[:id])
         @reviews = Review.where(place_id: params[:id])
+        puts "THIS IS THE CURRENT USER:" + @username.inspect
+        puts "THIS IS THE USER ID OF POST CREATOR:" + @user_id.to_s
+
+
     end
 
     def new
