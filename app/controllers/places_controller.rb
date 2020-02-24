@@ -116,7 +116,6 @@ class PlacesController < ApplicationController
         redirect_to @place
     end
 
-
     def update
         @place = Place.find(params[:id])
 
@@ -129,6 +128,10 @@ class PlacesController < ApplicationController
 
     def creation
         @places = Place.where(user_id: current_user[:id])
+    end
+
+    def favourite
+        @favourites = Favourite.where(user_id: current_user.id)
     end
 
     private
