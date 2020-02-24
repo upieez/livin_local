@@ -5,7 +5,7 @@
                 <%= form_with scope: :place, url: places_path, local: true do |form| %>
                 <%= form.label :name %>
             </div>
-            <div class="form-field"><%= form.text_field :name %></div>
+            <div class="form-field" id = "place_name"><%= form.text_field :name, required: true %></div>
         </div>
     </div>
 
@@ -13,7 +13,7 @@
     <div class="address-field">
         <div class="form-label"><%= form.label :address %></div>
         <!-- input type is needed for places api -->
-        <div class="form-field"><input type="text" name="place[address]" id="autocomplete"></div>
+        <div class="form-field"><input type="text" name="place[address]" id="autocomplete" required ></div>
     </div>
 
     <div class="description-field">
@@ -32,7 +32,7 @@
         <div class="form-label"><%= form.label :upload %></div>
         <div class="form-field"><%= form.file_field :img_url, :accept => "image/png, image/jpeg, image/jpg, image/gif" %></div>
     </div>
-    
+
     <div class="rating-field">
         <div class="form-label"><%= form.label :rating %></div>
         <div class="rate-field">
@@ -68,7 +68,7 @@
     </div>
 
 
-    <div class="save-place"><%= form.submit ({:onclick => "pendingAlert()"}) %></div>
+    <div class="save-place"><%= form.submit ({:onclick => "pendingAlert()"})%></div>
     <!-- <input type="submit" name="commit" value="Save Place" onclick="pendingAlert()" data-disable-with="Save Place"> -->
     <% end %>
 
@@ -76,7 +76,13 @@
 
 <script>
     pendingAlert = () => {
+        var nameField = document.getElementById("place_name");
+        if (!nameField.value){
+            console.log("no name input")
+        }
+        else{
             alert('Post submitted! It is now pending Admin approval.')
+        }
     }
 </script>
 

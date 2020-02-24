@@ -6,12 +6,12 @@
         <div class="col">
             <%= form_with scope: :place, model: @place, local: true do |form| %>
              <%= form.label :name %><br>
-            <%= form.text_field :name %>
+            <%= form.text_field :name, required: true %>
         </div>
         <div class="col">
             <%= form.label :address %><br>
             <!-- input type is needed for places api -->
-            <input type="text" name="place[address]" id="autocomplete">
+            <input type="text" name="place[address]" id="autocomplete" value = "<%= @place.address%>"required>
         </div>
     </div>
     <div class="form-row">
@@ -51,7 +51,7 @@
 </div>
     <div class="form-row">
         <div class="col">
-            <%= link_to 'back', place_path %>
+            <%= link_to 'Back', place_path, class: "btn btn-primary"%>
         </div>
         <div class="col">
             <%= form.submit %>
