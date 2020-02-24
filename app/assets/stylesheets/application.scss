@@ -184,10 +184,6 @@
 
 /****************************** LOGIN FORM ******************************/
 ///// form (overall) /////
-input[type='checkbox'] {
-  margin: 5px;
-}
-
 .label-field {
   display: flex;
 }
@@ -271,6 +267,10 @@ input[type='checkbox'] {
 }
 
 /****************************** NEW POST FORM ******************************/
+input[type='checkbox'] {
+  margin: 5px;
+}
+
 .name-field {
   display: flex;
   max-width: 16%;
@@ -360,7 +360,7 @@ $secondary-color : red;
  }
 
 #appName {
-  background-image: url("appname.svg");
+  background-image: asset-url("appname.svg");
   background-repeat: no-repeat;
   background-size: 300px auto;
   background-position: center;
