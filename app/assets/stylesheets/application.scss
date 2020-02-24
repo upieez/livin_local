@@ -226,10 +226,6 @@
 
 /****************************** LOGIN FORM ******************************/
 ///// form (overall) /////
-input[type='checkbox'] {
-  margin: 5px;
-}
-
 .label-field {
   display: flex;
 }
@@ -313,6 +309,10 @@ input[type='checkbox'] {
 }
 
 /****************************** NEW POST FORM ******************************/
+input[type='checkbox'] {
+  margin: 5px;
+}
+
 .name-field {
   display: flex;
   max-width: 16%;
@@ -440,8 +440,17 @@ input[type='checkbox'] {
   width:250px;
  }
 
+
 #card-container {
   max-width: 90%;
+}
+
+#appName {
+  background-image: asset-url("appname.svg");
+  background-repeat: no-repeat;
+  background-size: 300px auto;
+  background-position: center;
+  width: 100%;
   height: auto;
   margin: 0 auto;
 }

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     # get '/places?tag_id' => 'places#index'
     get '/places/new' => 'places#new', as: 'new_place'
     post '/places' => 'places#create'
+    get '/places/favourites' => 'places#favourite'
     get '/places/creation' => 'places#creation', as: 'places_creation'
     get '/places/user/:user_id' => 'places#user', as: 'places_user'
 
@@ -24,6 +25,15 @@ Rails.application.routes.draw do
 
     #Review routes
     post '/places/:id' => 'reviews#create'
+
+    #Favourite routes
+    post '/places/:id/favourite' => 'favourites#create', as: 'post_favourite' 
+    delete '/places/:id/favourite' => 'favourites#destroy'
+
+
+    resources :places do
+      resources :favourite
+    end
 
 
 end

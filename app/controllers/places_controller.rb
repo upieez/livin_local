@@ -3,7 +3,6 @@ class PlacesController < ApplicationController
     before_action :authenticate_user!, :except => [ :show, :home ]
     protect_from_forgery :except => [:index]
 
-
     def home
         if user_signed_in?
             redirect_to '/places'
@@ -67,7 +66,13 @@ class PlacesController < ApplicationController
     end
 
     def edit
+        byebug
         @place = Place.find(params[:id])
+
+        if current_user.id != @place.user_id or @place.approval == true
+            redirect_to '/places'
+        end
+        
     end
 
     def create
@@ -117,7 +122,6 @@ class PlacesController < ApplicationController
         redirect_to @place
     end
 
-
     def update
         @place = Place.find(params[:id])
 
@@ -130,6 +134,10 @@ class PlacesController < ApplicationController
 
     def creation
         @places = Place.where(user_id: current_user[:id])
+    end
+
+    def favourite
+        @favourites = Favourite.where(user_id: current_user.id)
     end
 
     private

@@ -1,8 +1,26 @@
-<div id="show-container" class="container">
+<div id="show-container" class="container mt-5">
   <div class="row">
     <div id="left-col-padding" class="col text-left">
 
+
       <div class="place-title"><%= @place.name %></div>
+      
+      <% pre_favourite = @place.favourite.find { |favourite| favourite.user_id == current_user.id} %>
+
+        <% if pre_favourite %>
+        <div class="d-flex align-items-center">
+          <%= button_to '💔', post_favourite_path(@place,pre_favourite), class: "btn border-0 bg-white", method: :delete %> <span> <%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%> </span>
+        </div>
+
+        <% else %>
+        <div class="d-flex align-items-center">
+          <%= button_to '❤️', post_favourite_path(@place), class: "btn border-0 bg-white", method: :post %> <span><%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%></span>
+        </div>
+
+      <% end %>
+      
+      <hr>
+
       <!-- display name of user who posted specific place_id -->
       <div class="card-title">By: <a class="user-name" href="/places/user/<%= @user_id %>" > <%= @creator.username%></a></div>
 
@@ -29,7 +47,8 @@
       <%= image_tag('/logo.svg', :size => "650x500", :crop => :fill, :class => "show-image") %>
       <% end %>
 
-      <div class="rating-title"> Rating </div>
+
+      <div class="rating-title mt-3"> Rating </div>
       <% if !@ratings.exists? %>
       <div class="card-title">No rating given.</div>
       <% else %>
@@ -113,23 +132,26 @@
     </div><hr>
   </div>
 
-
   <%= form_with scope: :review, url: place_path, remote: true do |form| %>
     <div class="form-group text-left">
     <%# <div class="card-title"><%= form.label :Post!, skip_label: true %></div>
     <textarea class="form-control" type="text" name="place[review]" id="place_review"></textarea>
     </div>
 
-    <div class="post-review"><%= form.submit "Post Review!", class: "submit"%></div>
+    <%= form.submit "Post Review!", class: "submit btn btn-success post-review"%>
   <% end %>
 
-    <%# <%= link_to 'Edit', edit_place_path %> 
-
+  <p class = "text-center">
     <!-- if admin is logged in, back button will go back to pending posts, else back button will got to my places -->
-    <% if user_signed_in? and current_user.admin == true and @place.approval == false %>
-      <%= link_to 'Back', approve_admins_path %>
-    <%elsif user_signed_in? and @place.approval == true and @place.user_id = current_user.id%>
-      <%= link_to 'Back', places_path %>
+    <% if user_signed_in? and @place.approval == false %>
+    <%= link_to 'Edit', edit_place_path, class: "btn btn-warning mt-4" %>
     <% end %>
-    </div>
+    <% if user_signed_in? and current_user.admin == true and @place.approval == false %>
+
+      <%= link_to 'Back', approve_admins_path, class: "btn btn-primary mt-4" %>
+    <%elsif user_signed_in? and @place.approval == true and @place.user_id = current_user.id%>
+      <%= link_to 'Back', places_path, class: "btn btn-primary mt-4" %>
+
+    <% end %>
+  </p>
 </div>
