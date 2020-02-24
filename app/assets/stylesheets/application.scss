@@ -84,6 +84,48 @@
   }
 }
 
+
+/****************************** HOME PAGE ANIMATION ******************************/
+#appName {
+  background-image: url("appname.svg");
+  background-repeat: no-repeat;
+  background-size: 300px auto;
+  background-position: center;
+  width: 100%;
+  height: auto;
+
+  display: inline-block;
+  position: relative;
+  opacity: 0;
+  animation: titleAnimation 1s linear forwards;
+  -webkit-animation: titleAnimation 1s linear forwards;
+  -moz-animation: titleAnimation 1s linear forwards;
+  -o-animation: titleAnimation 1s linear forwards;
+  -ms-animation: titleAnimation 1s linear forwards;
+}
+
+#tagline {
+  font-family: avenir, sans-serif;
+  font-size: 13px;
+  color: #82514a;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  padding-top: 150px;
+  text-align: center;
+}
+
+@keyframes titleAnimation {
+  0% {
+      opacity: 0;
+      transform: translateY(100px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0px);
+  }
+}
+
+
 /****************************** SHOW RATINGS ******************************/
 .stars {
   max-width: 30%;
@@ -115,6 +157,10 @@
 
 
 /****************************** LOG IN PAGE ******************************/
+small{
+  color:#FC0107;
+}
+
 .login-title {
   width: 130px;
   height: auto;
@@ -333,9 +379,52 @@ input[type='checkbox'] {
   padding-left: 40px;
 }
 
-$secondary-color : red;
 
+/****************************** IMPORT BOOTSTRAP ******************************/
  @import "bootstrap";
+
+
+/****************************** VIEW ONE PLACE ******************************/
+#show-container {
+  padding-top: 30px;
+}
+
+.show-image {
+  border-radius: 20px;
+}
+
+.place-title {
+  font-family: avenir, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #82514a;
+}
+
+.rating-title {
+  font-family: avenir, sans-serif;
+  font-size: 20px;
+  padding-top: 20px;
+  font-weight: bold;
+  color: #82514a;
+}
+
+#left-col-padding {
+  padding-right: 50px;
+}
+
+.user-name {
+  color: #ff4817;
+
+  &:hover {
+    color: #ff4817;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+.address-map {
+  color: #ff4817;
+}
 
  #map {
     height:500px;
@@ -344,10 +433,6 @@ $secondary-color : red;
 
  #location {
   display: none;
- }
-
- #desc, #address{
-  font-weight: bold;
  }
 
  #expand {
@@ -359,6 +444,12 @@ $secondary-color : red;
   width:250px;
  }
 
+
+#card-container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
 #appName {
   background-image: asset-url("appname.svg");
   background-repeat: no-repeat;
@@ -366,49 +457,72 @@ $secondary-color : red;
   background-position: center;
   width: 100%;
   height: auto;
-
-  display: inline-block;
-  position: relative;
-  opacity: 0;
-  animation: titleAnimation 1s linear forwards;
-  -webkit-animation: titleAnimation 1s linear forwards;
-  -moz-animation: titleAnimation 1s linear forwards;
-  -o-animation: titleAnimation 1s linear forwards;
-  -ms-animation: titleAnimation 1s linear forwards;
+  margin: 0 auto;
 }
 
-#tagline {
+.post-review {
+  border-radius: 10px;
   font-family: avenir, sans-serif;
-  font-size: 13px;
-  color: #82514a;
-  letter-spacing: 10px;
-  text-transform: uppercase;
-  padding-top: 150px;
-  text-align: center;
+  font-size: 16px;
+  float: left;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  padding-left: 310px;
+  max-width: 5%;
 }
 
-@keyframes titleAnimation {
-  0% {
-      opacity: 0;
-      transform: translateY(100px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0px);
-  }
+/****************************** PENDING APPROVAL ******************************/
+.pending-title {
+  width: 330px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 50px;
 }
 
-#card-container {
+.approve {
+  max-width: 50%;
+  height: auto;
+  padding-right: 20px;
+}
+
+.approve-delete {
+  max-width: 50%;
+  height: auto;
+  display: flex;
+}
+
+#pending-card-container {
   max-width: 90%;
   height: auto;
   margin: 0 auto;
 }
 
+.pending-card-columns {
+  max-width: 30%;
+  float: left;
+}
+
+.pending-btns {
+  border-radius: 5px;
+  font-family: avenir, sans-serif;
+  font-size: 18px;
+  color: grey;
+
+  &:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: grey;
+  }
+}
+
+
+/****************************** TAG ******************************/
 #tagName{
   padding-left: 100px;
 }
 
 
+/****************************** CARD ******************************/
 .card-title {
   font-family: avenir, sans-serif;
   font-size: 16px;
@@ -429,7 +543,6 @@ $secondary-color : red;
     }
   }
 
-
   .card-img {
     border-radius: 25px;
   }
@@ -445,6 +558,10 @@ $secondary-color : red;
       opacity: 0.5;
     }
   }
+
+
+  /****************************** FIELD W ERRORS ******************************/
+  $secondary-color : red;
 
   .field_with_errors {
     input {

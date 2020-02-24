@@ -59,14 +59,11 @@
         <div class="form-field"><%= form.collection_check_boxes :tag_ids, @tags, :id, :name %></div>
     </div>
 
-    <div class="form-row">
-      <div class = "col">
-        <div class="save-place"><%= form.submit ({:onclick => "pendingAlert()"}) %>
-        </div>
-      </div>
+    <div class="save-place">
+        <%= form.submit ({:onclick => "pendingAlert()"}) %>
     </div>
+    <!-- <input type="submit" name="commit" value="Save Place" onclick="pendingAlert()" data-disable-with="Save Place"> -->
     <% end %>
-
 
 <script>
     pendingAlert = () => {

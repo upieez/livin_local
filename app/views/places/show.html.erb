@@ -1,8 +1,9 @@
-<div class="container mt-5">
+<div id="show-container" class="container mt-5">
   <div class="row">
-    <div class="col text-left">
+    <div id="left-col-padding" class="col text-left">
 
-      <h1><%= @place.name %></h1> 
+
+      <div class="place-title"><%= @place.name %></div>
       
       <% pre_favourite = @place.favourite.find { |favourite| favourite.user_id == current_user.id} %>
 
@@ -21,31 +22,35 @@
       <hr>
 
       <!-- display name of user who posted specific place_id -->
-      <p>By: <a href="/places/user/<%= @user_id%>" > <%= @creator.username%></a></p>
-      <p> <span id ="desc"> Description: </span>
-       <%= @place.description %></p>
-      <span id="location" class = "text-left">
-      <span id = "address"> Address:</span> <span id = "place_address"> <%= @place.address %> </span>
-      <!-- div for map image -->
-        <div id = "map">
+      <div class="card-title">By: <a class="user-name" href="/places/user/<%= @user_id %>" > <%= @creator.username%></a></div>
 
-        </div>
+      <span class="rating-title"> Description </span>
+      <div class="card-title"><%= @place.description %></div>
+
+      <span id="location" class="text-left">
+        <span class="card-title"> Address:</span>
+        <span class="address-map" id="place_address"><%= @place.address %></span>
+        <!-- div for map image -->
+        <div id="map"></div>
       </span>
+      
       <!-- <div class="btn-container"> -->
-        <button onclick="toggle()" class = "btn btn-info" id="expand">View Location</button>
+        <button onclick="toggle()" class="btn btn-info" id="expand">View Location</button>
       <!-- </div> -->
     </div>
 
+
     <div class="col text-left">
       <% if @place.img_url %>
-      <%= cl_image_tag(@place.img_url, :size => "650x500", :crop => :fill) %>
+      <%= cl_image_tag(@place.img_url, :size => "650x500", :crop => :fill, :class => "show-image") %>
       <% else %>
-      <%= image_tag('/logo.svg', :size => "650x500", :crop => :fill) %>
+      <%= image_tag('/logo.svg', :size => "650x500", :crop => :fill, :class => "show-image") %>
       <% end %>
 
-      <h5 class="mt-3">Rating:</h5>
+
+      <div class="rating-title mt-3"> Rating </div>
       <% if !@ratings.exists? %>
-      <p>No rating given.</p>
+      <div class="card-title">No rating given.</div>
       <% else %>
       <% @ratings.each do |rating| %>
         <% if rating.value == 5 %>
@@ -101,12 +106,14 @@
       <% end %>
     </div>
   </div>
+
 <hr>
+
   <div class="row">
     <div class="col text-left creation">
-      <h1 >Reviews:</h1>
+      <div class="rating-title">Reviews</div>
       <% if !@reviews.exists? %>
-        <p>No reviews yet. Add a review here.</p>
+        <div class="card-title">No reviews yet. Add a review here.</div>
       <% else %>
         <% @reviews.each do |review| %>
           <p><%=review.user.username %> says:</p>
@@ -127,7 +134,7 @@
 
   <%= form_with scope: :review, url: place_path, remote: true do |form| %>
     <div class="form-group text-left">
-    <%= form.label :review %><br>
+
     <textarea class="form-control" type="text" name="place[review]" id="place_review"></textarea>
     </div>
 
