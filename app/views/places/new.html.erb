@@ -6,6 +6,7 @@
          <%= form_with scope: :place, url: places_path, local: true do |form| %>
             <%= form.label :name %><br>
             <%= form.text_field :name %>
+            <p class="error"> <%= show_errors(@place, :name) %></p>
         </div>
         <div class="col">
             <%= form.label :address %><br>
@@ -50,7 +51,7 @@
         </div>
     </div>
 
-    <div class="form-row">
+    <div class="form-row checkbox">
         <div class="col-4">
           <%= form.label :tags  %><br>
           <%= form.collection_check_boxes :tag_ids, @tags, :id, :name %>
@@ -59,7 +60,7 @@
 
     <div class="form-row">
         <div class = "col">
-            
+
         </div>
         <div class="col">
           <%= form.submit ({:onclick => "pendingAlert()"

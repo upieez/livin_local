@@ -63,10 +63,9 @@
       function activateAutocomplete() {
         var input = document.getElementById('autocomplete');
         var options = {
-          types: ['(cities)'],
           componentRestrictions: {country: 'sg'}
           };
-        var autocomplete = new google.maps.places.Autocomplete(input);
+        var autocomplete = new google.maps.places.Autocomplete(input,options);
       };
 
       //onclick of read more, address and map is displayed and read more button changes value
