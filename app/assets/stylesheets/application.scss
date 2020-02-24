@@ -182,7 +182,7 @@
 }
 
 
-/****************************** FORM ******************************/
+/****************************** LOGIN FORM ******************************/
 ///// form (overall) /////
 .label-field {
   display: flex;
@@ -198,6 +198,8 @@
 }
 
 .form-field {
+  font-family: avenir, sans-serif;
+  font-size: 16px;
   padding-bottom: 10px;
 }
 
@@ -264,14 +266,72 @@
   padding-top: 50px;
 }
 
+/****************************** NEW POST FORM ******************************/
+.name-field {
+  display: flex;
+  max-width: 16%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.address-field {
+  display: flex;
+  max-width: 18.5%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.description-field {
+  display: flex;
+  max-width: 22%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.review-field, .upload-field, .rating-field {
+  display: flex;
+  max-width: 17.5%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.rate-field {
+  padding-top: 5px;
+  padding-left: 3px;
+}
+
+.tags-field {
+  display: flex;
+  max-width: 28%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-left: 90px;
+}
+
+.save-place {
+  font-family: avenir, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+
+  padding-top: 20px;
+  padding-bottom: 50px;
+
+  margin: 0 auto;
+  max-width: 10%;
+}
+
+.tags {
+  padding-left: 40px;
+}
 
 $secondary-color : red;
 
  @import "bootstrap";
-
-.container {
-  margin-top: 15px ;
-}
 
  #map {
     height:500px;
@@ -294,10 +354,6 @@ $secondary-color : red;
   height:100px;
   width:250px;
  }
-
-#newForm{
-  margin: 0 auto;
-}
 
 #appName {
   background-image: url("appname.svg");
