@@ -10,6 +10,7 @@
       <% else %>
         <%= button_to 'Favourite', post_favourite_path(@place), method: :post %>
       <% end %>
+      <p><%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%></p>
 
       <!-- display name of user who posted specific place_id -->
       <p>By: <a href="/places/user/<%= @user_id%>" > <%= @creator.username%></a></p>
