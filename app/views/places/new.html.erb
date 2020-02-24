@@ -16,12 +16,10 @@
         <div class="form-field"><input type="text" name="place[address]" id="autocomplete"></div>
     </div>
 
-
     <div class="description-field">
         <div class="form-label"><%= form.label :description %></div>
         <div class="form-field"><textarea type="text" name="place[description]" id="place_desc"></textarea></div>
     </div>
-
 
     <div class="review-field">
         <div class="form-label"><%= form.label :review %></div>
@@ -32,13 +30,13 @@
 
     <div class="upload-field">
         <div class="form-label"><%= form.label :upload %></div>
-        <div class="form-field"><%= form.file_field :img_url %></div>
+        <div class="form-field"><%= form.file_field :img_url, :accept => "image/png, image/jpeg, image/jpg, image/gif" %></div>
     </div>
-
     
     <div class="rating-field">
         <div class="form-label"><%= form.label :rating %></div>
         <div class="rate-field">
+
             <div class="star-rating">
                 <div class="star-rating__wrap">
                     <input class="star-rating__input" id="star-rating-5" type="radio" name="place[rating]" value=<%= '5'.to_i %>>

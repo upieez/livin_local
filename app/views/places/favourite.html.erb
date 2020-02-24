@@ -1,0 +1,24 @@
+
+<h1 class = "text-center"><%= current_user[:username] %> favourites</h1>
+
+
+
+<div class="row d-flex justify-content-around p-4 text-center">
+    <% if !@favourites.exists? %>
+    <h1> Favourite your first post to view it here! </h1>
+    <% else %>
+        <div class="card-columns">
+            <% @favourites.each do |favourite| %>
+                <div class="mb-4 card border-warning">
+                    <div class="border-warning rounded-2">
+                        <%= cl_image_tag((favourite.place.img_url), class: "card-img-top") %>
+                        <div class="card-body">
+                            <h5 class="card-title"><%=favourite.place.name%></h5>
+                            <%= link_to 'View', place_path(favourite.place), class: "btn btn-primary" %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>

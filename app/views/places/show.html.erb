@@ -2,7 +2,21 @@
   <div class="row">
     <div class="col text-left">
 
-      <h1><%= @place.name %></h1>
+      <h1><%= @place.name %></h1> 
+
+      <% pre_favourite = @place.favourite.find { |favourite| favourite.user_id == current_user.id} %>
+
+        <% if pre_favourite %>
+
+          <%= button_to 'Unfavourite', post_favourite_path(@place,pre_favourite), method: :delete %>
+
+        <% else %>
+
+          <%= button_to 'Favourite', post_favourite_path(@place), method: :post %>
+
+      <% end %>
+      <p><%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%></p>
+
       <!-- display name of user who posted specific place_id -->
       <p>By: <a href="/places/user/<%= @user_id%>" > <%= @creator.username%></a></p>
       <p> <span id ="desc"> Description: </span>

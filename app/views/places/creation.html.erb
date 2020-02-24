@@ -1,9 +1,10 @@
 <div class="places-went-title"><img src="/places-explored.svg"></div>
 
+
+<div class="row d-flex justify-content-around p-4 text-center">
 <% if !@places.exists? %>
 <h1 class="create-new"> Create a new post to view!<h1>
 <% else %>
-<div class="row d-flex justify-content-around p-4 text-center">
 <div class="card-columns">
 <% @places.each do |place| %>
     <div class="mb-4 card border-warning">
