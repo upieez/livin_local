@@ -59,22 +59,13 @@
     <div class="tags-field">
         <div class="form-label"><%= form.label :tags %></div>
         <div class="form-field"><%= form.collection_check_boxes :tag_ids, @tags, :id, :name %></div>
-
-    <div class="form-row">
-        <div class = "col">
-
-        </div>
-        <div class="save-place"><%= form.submit ({:onclick => "pendingAlert()"}) %>
-        <!--<input type="submit" name="commit" value="Save Place" onclick="pendingAlert()" data-disable-with="Save Place"> -->
-        </div>
     </div>
 
-
-    <div class="save-place"><%= form.submit ({:onclick => "pendingAlert()"}) %></div>
+    <div class="save-place">
+        <%= form.submit ({:onclick => "pendingAlert()"}) %>
+    </div>
     <!-- <input type="submit" name="commit" value="Save Place" onclick="pendingAlert()" data-disable-with="Save Place"> -->
     <% end %>
-
-    <%# <a class="btn btn-primary" href= "/places"> Back</a> %>
 
 <script>
     pendingAlert = () => {
