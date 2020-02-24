@@ -134,11 +134,11 @@
 
   <%= form_with scope: :review, url: place_path, remote: true do |form| %>
     <div class="form-group text-left">
-    <%# <div class="card-title"><%= form.label :Post!, skip_label: true %></div>
+
     <textarea class="form-control" type="text" name="place[review]" id="place_review"></textarea>
     </div>
 
-    <%= form.submit "Post Review!", class: "submit btn btn-success post-review"%>
+    <%= form.submit "Post Review!", class: "submit btn btn-success"%>
   <% end %>
 
   <p class = "text-center">
