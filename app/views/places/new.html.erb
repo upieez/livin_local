@@ -1,78 +1,78 @@
-<h1 class = "text-center">Add a place</h1>
+<div class="places-went-title"><img src="/add-new.svg"></div>
 
-<div id= "newForm" class = "container">
-    <div class="form-row">
-        <div class="col">
-         <%= form_with scope: :place, url: places_path, local: true do |form| %>
-            <%= form.label :name %><br>
-            <%= form.text_field :name %>
+        <div class="name-field">
+            <div class="form-label">
+                <%= form_with scope: :place, url: places_path, local: true do |form| %>
+                <%= form.label :name %>
+            </div>
+            <div class="form-field"><%= form.text_field :name %></div>
         </div>
-        <div class="col">
-            <%= form.label :address %><br>
+    </div>
+
+
+    <div class="address-field">
+        <div class="form-label"><%= form.label :address %></div>
         <!-- input type is needed for places api -->
-            <input type="text" name="place[address]" id="autocomplete">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <%= form.label :description %><br>
-            <input type="text" name="place[description]" id="place_desc">
-
-        </div>
-        <div class="col">
-            <%= form.label :review %><br>
-            <!-- input type is a workaround for the activerecord  -->
-            <input type="text" name="place[review]" id="place_review">
-        </div>
+        <div class="form-field"><input type="text" name="place[address]" id="autocomplete"></div>
     </div>
 
-    <div class="form-row">
-        <div class="col">
-           <%= form.label :images %><br>
-           <%# credit to : jessica %>
-            <%= form.file_field :img_url, :accept => "image/png, image/jpeg, image/jpg, image/gif" %>
-        </div>
-        <div class="col">
-        <%= form.label :rating %><br>
+    <div class="description-field">
+        <div class="form-label"><%= form.label :description %></div>
+        <div class="form-field"><textarea type="text" name="place[description]" id="place_desc"></textarea></div>
+    </div>
+
+    <div class="review-field">
+        <div class="form-label"><%= form.label :review %></div>
+        <!-- input type is a workaround for the activerecord  -->
+        <div class="form-field"><textarea type="text" name="place[review]" id="place_review"></textarea></div>
+    </div>
+
+
+    <div class="upload-field">
+        <div class="form-label"><%= form.label :upload %></div>
+        <div class="form-field"><%= form.file_field :img_url, :accept => "image/png, image/jpeg, image/jpg, image/gif" %></div>
+    </div>
+    
+    <div class="rating-field">
+        <div class="form-label"><%= form.label :rating %></div>
+        <div class="rate-field">
+
             <div class="star-rating">
                 <div class="star-rating__wrap">
-                    <input class="star-rating__input" id="star-rating-5" type="radio" name="value" value=<%= '5'.to_i%>>
+                    <input class="star-rating__input" id="star-rating-5" type="radio" name="place[rating]" value=<%= '5'.to_i %>>
                     <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-5" title="5 out of 5 stars"></label>
-                    <input class="star-rating__input" id="star-rating-4" type="radio" name="value" value=<%= '4'.to_i%>>
+                    <input class="star-rating__input" id="star-rating-4" type="radio" name="place[rating]" value=<%= '4'.to_i %>>
                     <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-4" title="4 out of 5 stars"></label>
-                    <input class="star-rating__input" id="star-rating-3" type="radio" name="value" value=<%= '3'.to_i%>>
+                    <input class="star-rating__input" id="star-rating-3" type="radio" name="place[rating]" value=<%= '3'.to_i %>>
                     <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-3" title="3 out of 5 stars"></label>
-                    <input class="star-rating__input" id="star-rating-2" type="radio" name="value" value=<%= '2'.to_i%>>
+                    <input class="star-rating__input" id="star-rating-2" type="radio" name="place[rating]" value=<%= '2'.to_i %>>
                     <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-2" title="2 out of 5 stars"></label>
-                    <input class="star-rating__input" id="star-rating-1" type="radio" name="value" value=<%= '1'.to_i%>>
+                    <input class="star-rating__input" id="star-rating-1" type="radio" name="place[rating]" value=<%= '1'.to_i %>>
                     <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1" title="1 out of 5 stars"></label>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="form-row">
-        <div class="col-4">
-          <%= form.label :tags  %><br>
-          <%= form.collection_check_boxes :tag_ids, @tags, :id, :name %>
-        </div>
-    </div>
+    <div class="tags-field">
+        <div class="form-label"><%= form.label :tags %></div>
+        <div class="form-field"><%= form.collection_check_boxes :tag_ids, @tags, :id, :name %></div>
 
     <div class="form-row">
         <div class = "col">
-            
+
         </div>
-        <div class="col">
-          <%= form.submit ({:onclick => "pendingAlert()"
-          }) %>
-<!--
-          <input type="submit" name="commit" value="Save Place" onclick="pendingAlert()" data-disable-with="Save Place"> -->
+        <div class="save-place"><%= form.submit ({:onclick => "pendingAlert()"}) %>
+        <!--<input type="submit" name="commit" value="Save Place" onclick="pendingAlert()" data-disable-with="Save Place"> -->
         </div>
     </div>
-      <% end %>
 
-      <a class="btn btn-primary" href= "/places"> Back</a>
 
+    <div class="save-place"><%= form.submit ({:onclick => "pendingAlert()"}) %></div>
+    <!-- <input type="submit" name="commit" value="Save Place" onclick="pendingAlert()" data-disable-with="Save Place"> -->
+    <% end %>
+
+    <%# <a class="btn btn-primary" href= "/places"> Back</a> %>
 
 <script>
     pendingAlert = () => {

@@ -115,6 +115,13 @@
 
 
 /****************************** LOG IN PAGE ******************************/
+.login-title {
+  width: 130px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
 .login-graphic {
   width: 320px;
   height: auto;
@@ -125,7 +132,7 @@
 .login-field {
   font-family: avenir, sans-serif;
   margin: 0 auto;
-  padding-left: 470px; 
+  padding-left: 470px;
   padding-top: 40px;
 }
 
@@ -157,8 +164,30 @@
 }
 
 
-/****************************** FORM ******************************/
+//My Places
+.create-new {
+  font-family: avenir, sans-serif;
+  font-size: 20px;
+  color: rgb(165, 165, 165);
+  text-align: center;
+  padding-top: 50px;
+}
+
+//Places went
+.places-went-title {
+  width: 270px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+
+/****************************** LOGIN FORM ******************************/
 ///// form (overall) /////
+input[type='checkbox'] {
+  margin: 5px;
+}
+
 .label-field {
   display: flex;
 }
@@ -173,6 +202,8 @@
 }
 
 .form-field {
+  font-family: avenir, sans-serif;
+  font-size: 16px;
   padding-bottom: 10px;
 }
 
@@ -180,7 +211,7 @@
 .first-field {
   font-family: avenir, sans-serif;
   margin: 0 auto;
-  padding-left: 590px; 
+  padding-left: 590px;
   padding-top: 40px;
 }
 
@@ -188,21 +219,21 @@
 .second-field {
   font-family: avenir, sans-serif;
   margin: 0 auto;
-  padding-left: 624px; 
+  padding-left: 624px;
 }
 
 ///// password /////
 .third-field {
   font-family: avenir, sans-serif;
   margin: 0 auto;
-  padding-left: 595px; 
+  padding-left: 595px;
 }
 
 ///// password (confirm) /////
 .fourth-field {
   font-family: avenir, sans-serif;
   margin: 0 auto;
-  padding-left: 496px; 
+  padding-left: 496px;
 }
 
 ///// password instruction /////
@@ -224,14 +255,87 @@
   max-width: 5%;
 }
 
+.nav-link {
+  font-family: avenir, sans-serif;
+  font-size: 18px;
+}
+
+
+.text-center {
+  font-family: avenir, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #82514a;
+  text-align: center;
+  padding-top: 50px;
+}
+
+/****************************** NEW POST FORM ******************************/
+.name-field {
+  display: flex;
+  max-width: 16%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.address-field {
+  display: flex;
+  max-width: 18.5%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.description-field {
+  display: flex;
+  max-width: 22%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.review-field, .upload-field, .rating-field {
+  display: flex;
+  max-width: 17.5%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.rate-field {
+  padding-top: 5px;
+  padding-left: 3px;
+}
+
+.tags-field {
+  display: flex;
+  max-width: 28%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-left: 90px;
+}
+
+.save-place {
+  font-family: avenir, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+
+  padding-top: 20px;
+  padding-bottom: 50px;
+
+  margin: 0 auto;
+  max-width: 10%;
+}
+
+.tags {
+  padding-left: 40px;
+}
 
 $secondary-color : red;
 
  @import "bootstrap";
-
-.container {
-  margin-top: 15px ;
-}
 
  #map {
     height:500px;
@@ -254,10 +358,6 @@ $secondary-color : red;
   height:100px;
   width:250px;
  }
-
-#newForm{
-  margin: 0 auto;
-}
 
 #appName {
   background-image: url("appname.svg");
@@ -298,9 +398,23 @@ $secondary-color : red;
   }
 }
 
-#tagName{
-  padding: 10px;
+#card-container {
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
 
+#tagName{
+  padding-left: 100px;
+}
+
+
+.card-title {
+  font-family: avenir, sans-serif;
+  font-size: 16px;
+  color: grey;
+  text-align: left;
+  padding-top: 10px;
 }
 
  .card-columns {
@@ -315,13 +429,21 @@ $secondary-color : red;
     }
   }
 
-  .card-img, .card-img-top {
-    border-top-left-radius: 23px;
-    border-top-right-radius: 23px;
+
+  .card-img {
+    border-radius: 25px;
   }
 
-  .card {
-    border-radius: 1.5rem;
+  .card  {
+    border: none;
+    padding-bottom: 10px;
+    max-width: 95%;
+
+
+    &:hover {;
+      z-index: 1;
+      opacity: 0.5;
+    }
   }
 
   .field_with_errors {
@@ -330,6 +452,4 @@ $secondary-color : red;
         border-radius: 10px;
         border: 1px solid $secondary-color;
     }
-
   }
-

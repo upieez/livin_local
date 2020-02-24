@@ -16,13 +16,13 @@ class PlacesController < ApplicationController
             # to still be able to display all tag names
             @tags = Tag.all
 
-            # get tag_id chosen bys user
+            # get tag_id chosen by user
             @tag_id = params[:tag_id]
 
             # get the places with the tag chosen by user
-            # @places = Place.joins(:tag).where(:tag => {:id => @tag_id})
-            @places = Place.joins(:tag).where(:tag_id => @tag_id)
-
+            # if there are places with the chosen tag, display these places
+                # else,nothing to display
+            @places = Tag.find_by(id: @tag_id).place
             puts "INSPECTING PLACES:" + @places.inspect
 
         else
@@ -89,13 +89,14 @@ class PlacesController < ApplicationController
 
         @place.save
 
-        @rating = Rating.new(rating_params)
+        @rating = Rating.new(value: params["place"]["rating"].to_i)
 
         @rating.user = current_user
 
         @rating.place = @place
 
         @rating.save
+
 
         if review_params[:review] == ""
             redirect_to @place
@@ -136,10 +137,6 @@ class PlacesController < ApplicationController
     private
     def place_params
         params.require(:place).permit(:id, :name, :description, :img_url, :address, :approval, :tag_ids => [])
-    end
-
-    def rating_params
-        params.require(:place).permit(:value)
     end
 
     def review_params
