@@ -68,7 +68,7 @@
     </div>
 
 
-    <div class="save-place"><%= form.submit ({:onclick => "pendingAlert()"})%></div>
+    <div class="save-place"><%= form.submit, :class => "btn btn-primary", ({:onclick => "pendingAlert()"})%></div>
     <!-- <input type="submit" name="commit" value="Save Place" onclick="pendingAlert()" data-disable-with="Save Place"> -->
     <% end %>
 
