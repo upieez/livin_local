@@ -26,7 +26,13 @@
         <%= f.label :remember_me %>
       </div>
     <% end %>
+      <% flash.each do |key, value| %>
+        <div>
+          <small class="flash <%= key %>"><%= value %></small>
+        </div>
+      <% end %>
   </div>
+
 
 <div class="links"><%= render "devise/shared/links" %></div>
 
@@ -36,12 +42,6 @@
 <% end %>
 
 
-
-<% flash.each do |key, value| %>
-  <div>
-    <small class="flash <%= key %>"><%= value %></small>
-  </div>
-<% end %>
 
 <div class="login-graphic"><img src="/login-people.svg"></div>
 
