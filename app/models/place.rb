@@ -4,6 +4,6 @@ class Place < ApplicationRecord
     has_many :rating
     has_many :review
     has_many :favourite, dependent: :destroy
-    has_and_belongs_to_many :tag
+    has_and_belongs_to_many :tag, optional: true
 
   end
