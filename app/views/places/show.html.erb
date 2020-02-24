@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col text-left">
 
-      <h1><%= @place.name %></h1> 
+      <h1><%= @place.name %></h1>
 
       <% pre_favourite = @place.favourite.find { |favourite| favourite.user_id == current_user.id} %>
 
@@ -143,3 +143,19 @@
     <% end %>
     </div>
 </div>
+
+
+<script>
+  //onclick of read more, address and map is displayed and read more button changes value
+        function toggle() {
+          var location = document.getElementById('location')
+          var btnText = document.getElementById("expand");
+          if (location.style.display === "none") {
+            location.style.display = "inline";
+            btnText.innerHTML = "Close";
+          } else {
+            location.style.display = "none";
+            btnText.innerHTML = "View Location";
+          }
+        }
+</script>
