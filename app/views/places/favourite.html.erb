@@ -6,6 +6,9 @@
 
 
 <div class="row d-flex justify-content-around p-4 text-center">
+    <% if !@favourites.exists? %>
+    <h1> Favourite your first post to view it here! </h1>
+    <% else %>
     <div class="card-columns">
         <% @favourites.each do |favourite| %>
             <div class="mb-4 card border-warning">
@@ -19,6 +22,7 @@
             </div>
         <% end %>
     </div>
+    <% end %>
 </div>
 <script>
 

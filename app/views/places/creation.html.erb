@@ -1,9 +1,10 @@
 <h1 class = "text-center">Places you went!</h1>
 
-<% if !@places.exists? %>
-<h1> CREATE A NEW POSTING TO VIEW!<h1>
-<% else %>
+
 <div class="row d-flex justify-content-around p-4 text-center">
+<% if !@places.exists? %>
+<h1> CREATE A NEW POSTING TO VIEW!</h1>
+<% else %>
 <div class="card-columns">
 <% @places.each do |place| %>
     <div class="mb-4 card border-warning">
