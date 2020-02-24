@@ -9,12 +9,12 @@
 
         <% if pre_favourite %>
         <div class="d-flex align-items-center">
-          <%= button_to '💔', post_favourite_path(@place,pre_favourite), class: "btn border-0 bg-white", method: :delete %> <span> <%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%> </span>
+          <%= button_to '💔', post_favourite_path(@place,pre_favourite), class: "btn border-0 bg-white", method: :delete %> <span class="card-title"> <%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%> </span>
         </div>
 
         <% else %>
         <div class="d-flex align-items-center">
-          <%= button_to '❤️', post_favourite_path(@place), class: "btn border-0 bg-white", method: :post %> <span><%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%></span>
+          <%= button_to '❤️', post_favourite_path(@place), class: "btn border-0 bg-white", method: :post %> <span class="card-title"><%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%></span>
         </div>
 
       <% end %>
