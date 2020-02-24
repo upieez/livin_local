@@ -90,13 +90,14 @@ class PlacesController < ApplicationController
 
         @place.save
 
-        @rating = Rating.new(rating_params)
+        @rating = Rating.new(value: params["place"]["rating"].to_i)
 
         @rating.user = current_user
 
         @rating.place = @place
 
         @rating.save
+
 
         if review_params[:review] == ""
             redirect_to @place
@@ -134,10 +135,6 @@ class PlacesController < ApplicationController
     private
     def place_params
         params.require(:place).permit(:id, :name, :description, :img_url, :address, :approval, :tag_ids => [])
-    end
-
-    def rating_params
-        params.require(:place).permit(:value)
     end
 
     def review_params
