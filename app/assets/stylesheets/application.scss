@@ -360,7 +360,7 @@ $secondary-color : red;
  }
 
 #appName {
-  background-image: url("appname.svg");
+  background-image: asset-url("appname.svg");
   background-repeat: no-repeat;
   background-size: 300px auto;
   background-position: center;
