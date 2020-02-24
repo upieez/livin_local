@@ -66,7 +66,9 @@ class PlacesController < ApplicationController
     end
 
     def edit
+        byebug
         @place = Place.find(params[:id])
+
     end
 
     def create
