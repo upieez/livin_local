@@ -6,7 +6,5 @@ class Place < ApplicationRecord
     has_many :favourite
     has_and_belongs_to_many :tag
 
-# scope to get tag id
-    scope :filter_by_tag_id, -> (tag_id) { where tag_id: tag_id }
-
+    validates :name, presence: true, uniqueness: true
   end

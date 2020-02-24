@@ -132,7 +132,7 @@
 .login-field {
   font-family: avenir, sans-serif;
   margin: 0 auto;
-  padding-left: 470px; 
+  padding-left: 470px;
   padding-top: 40px;
 }
 
@@ -184,6 +184,10 @@
 
 /****************************** LOGIN FORM ******************************/
 ///// form (overall) /////
+input[type='checkbox'] {
+  margin: 5px;
+}
+
 .label-field {
   display: flex;
 }
@@ -207,7 +211,7 @@
 .first-field {
   font-family: avenir, sans-serif;
   margin: 0 auto;
-  padding-left: 590px; 
+  padding-left: 590px;
   padding-top: 40px;
 }
 
@@ -215,21 +219,21 @@
 .second-field {
   font-family: avenir, sans-serif;
   margin: 0 auto;
-  padding-left: 624px; 
+  padding-left: 624px;
 }
 
 ///// password /////
 .third-field {
   font-family: avenir, sans-serif;
   margin: 0 auto;
-  padding-left: 595px; 
+  padding-left: 595px;
 }
 
 ///// password (confirm) /////
 .fourth-field {
   font-family: avenir, sans-serif;
   margin: 0 auto;
-  padding-left: 496px; 
+  padding-left: 496px;
 }
 
 ///// password instruction /////
@@ -433,7 +437,7 @@ $secondary-color : red;
   .card  {
     border: none;
     padding-bottom: 10px;
-    max-width: 95%; 
+    max-width: 95%;
 
 
     &:hover {;

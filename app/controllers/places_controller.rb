@@ -17,13 +17,13 @@ class PlacesController < ApplicationController
             # to still be able to display all tag names
             @tags = Tag.all
 
-            # get tag_id chosen bys user
+            # get tag_id chosen by user
             @tag_id = params[:tag_id]
 
             # get the places with the tag chosen by user
-            # @places = Place.joins(:tag).where(:tag => {:id => @tag_id})
-            @places = Place.joins(:tag).where(:tag_id => @tag_id)
-
+            # if there are places with the chosen tag, display these places
+                # else,nothing to display
+            @places = Tag.find_by(id: @tag_id).place
             puts "INSPECTING PLACES:" + @places.inspect
 
         else
