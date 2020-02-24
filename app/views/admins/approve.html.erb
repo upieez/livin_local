@@ -1,25 +1,35 @@
-<h1>Pending for Approval</h1>
+<div class="pending-title"><img src="/pending.svg"></div>
 
-<div class="row d-flex justify-content-around p-4 ">
-<div class="card-columns">
+<% if !@places.exists? %>
+<h1 class="create-new"> No posts yet!<h1>
 
-
+<% else %>
+<div id="pending-card-container" class="row d-flex justify-content-around p-4">
+<div class="pending-card-columns">
     <% @places.each do |place| %>
-        <div class="mb-4 card border-warning">
-            <div class="border-warning rounded-2">
-                <%= cl_image_tag((place.img_url), class: "card-img-top") %>
-                <div class="card-body">
-                    <h5 class="card-title"><%=place.name%></h5>
-                    <%= link_to 'Approve', "/places/approve/" + place.id.to_s, class: "btn btn-primary" %>
-                    <%= link_to 'View', place_path(place), class: "btn btn-primary" %>
-                    <%= link_to 'Delete', "/places/pending/" + place.id.to_s, class: "btn btn-primary" %>
-                </div>
+        <a href="/places/<%= place.id %>">
+            <div class="card bg-transparent text-white">
+                <img class="card-img" src<%= cl_image_tag(place.img_url) %>
+                <h5 class="card-title d-flex"><%=place.name%></h5>
+            </div>
+        </a>
+
+        <div class="approve-delete">
+            <div class="approve">
+                <a href=<%="/places/approve/" + place.id.to_s %>>
+                    <img src="/save.svg" style="width: 20px; height: auto"> 
+                </a>
+            </div>
+            <div class="delete">
+                <a href=<%="/places/pending/" + place.id.to_s %>>
+                    <img src="/delete.svg" style="width: 20px; height: auto"> 
+                </a>
             </div>
         </div>
     <% end %>
-
 </div>
 </div>
+<% end %>
 
 
 
