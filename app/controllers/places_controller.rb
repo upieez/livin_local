@@ -3,7 +3,6 @@ class PlacesController < ApplicationController
     before_action :authenticate_user!, :except => [ :show, :home ]
     protect_from_forgery :except => [:index]
 
-
     def home
         if user_signed_in?
             redirect_to '/places'

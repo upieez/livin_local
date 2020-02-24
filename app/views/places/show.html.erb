@@ -4,11 +4,16 @@
 
       <h1><%= @place.name %></h1> 
 
-      <% pre_like = @place.favourite.find { |favourite| favourite.user_id == current_user.id} %>
-      <% if pre_like %>
-        <%= button_to 'Unfavourite', post_favourite_path(@place,pre_like), method: :delete %>
-      <% else %>
-        <%= button_to 'Favourite', post_favourite_path(@place), method: :post %>
+      <% pre_favourite = @place.favourite.find { |favourite| favourite.user_id == current_user.id} %>
+
+        <% if pre_favourite %>
+
+          <%= button_to 'Unfavourite', post_favourite_path(@place,pre_favourite), method: :delete %>
+
+        <% else %>
+
+          <%= button_to 'Favourite', post_favourite_path(@place), method: :post %>
+
       <% end %>
       <p><%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%></p>
 

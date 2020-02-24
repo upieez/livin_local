@@ -6,6 +6,7 @@ class FavouritesController < ApplicationController
    def create
     #  @place.favourite.create(user_id: current_user.id)
     #  redirect_to place_path(@place)
+
      if already_favourited?
         flash[:alert] = "You can't favourite more than once"
       else
