@@ -69,6 +69,10 @@ class PlacesController < ApplicationController
         byebug
         @place = Place.find(params[:id])
 
+        if current_user.id != @place.user_id or @place.approval == true
+            redirect_to '/places'
+        end
+        
     end
 
     def create

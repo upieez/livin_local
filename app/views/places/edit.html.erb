@@ -28,7 +28,7 @@
     <div class="form-row">
         <div class="col">
             <%= form.label :image %><br>
-            <%= form.text_field :img_url %>
+            <%= form.file_field :img_url, :accept => "image/png, image/jpeg, image/jpg, image/gif" %>
         </div>
         <div class="col">
             <%= form.label :rating %><br>
@@ -51,10 +51,10 @@
 </div>
     <div class="form-row">
         <div class="col">
-            <%= link_to 'Back', place_path, class: "btn btn-primary"%>
+            <%= link_to 'Back', place_path, class: "btn btn-primary mt-4" %>
         </div>
         <div class="col">
-            <%= form.submit %>
+            <%= form.submit 'Submit', :class => "btn btn-success mt-4" %>
             <% end %>
         </div>
     </div>
