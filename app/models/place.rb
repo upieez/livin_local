@@ -6,5 +6,5 @@ class Place < ApplicationRecord
     has_many :favourite
     has_and_belongs_to_many :tag
 
-    validates :name, presence: true
+    validates :name, presence: true, uniqueness: true
   end
