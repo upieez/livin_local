@@ -135,7 +135,6 @@
     <%= form.submit "Post Review!", class: "submit btn btn-success"%>
   <% end %>
 
-
   <p class = "text-center">
     <!-- if admin is logged in, back button will go back to pending posts, else back button will got to my places -->
     <% if user_signed_in? and @place.approval == false %>
