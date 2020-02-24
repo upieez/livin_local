@@ -133,36 +133,11 @@
 
 
   <p class = "text-center">
-    <%= link_to 'Edit', edit_place_path, class: "btn btn-primary" %>
     <!-- if admin is logged in, back button will go back to pending posts, else back button will got to my places -->
     <% if user_signed_in? and current_user.admin == true and @place.approval == false %>
       <%= link_to 'Back', approve_admins_path, class: "btn btn-primary" %>
     <%elsif user_signed_in? and @place.approval == true and @place.user_id = current_user.id%>
       <%= link_to 'Back', places_path, class: "btn btn-primary" %>
     <% end %>
-<<<<<<< HEAD
-    </div>
-</div>
-
-
-<script>
-  //onclick of read more, address and map is displayed and read more button changes value
-        function toggle() {
-          var location = document.getElementById('location')
-          var btnText = document.getElementById("expand");
-          if (location.style.display === "none") {
-            location.style.display = "inline";
-            btnText.innerHTML = "Close";
-          } else {
-            location.style.display = "none";
-            btnText.innerHTML = "View Location";
-          }
-        }
-</script>
-=======
   </p>
-
-  </div>
-
-
->>>>>>> 81a7bb018346302885f40f33c530473f6999c34a
+</div>
