@@ -51,10 +51,10 @@
 </div>
     <div class="form-row">
         <div class="col">
-            <%= link_to 'back', place_path %>
+            <%= link_to 'Back', place_path, class: "btn btn-primary mt-4" %>
         </div>
         <div class="col">
-            <%= form.submit %>
+            <%= form.submit 'Submit', :class => "btn btn-success mt-4" %>
             <% end %>
         </div>
     </div>

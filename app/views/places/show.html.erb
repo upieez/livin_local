@@ -3,19 +3,22 @@
     <div class="col text-left">
 
       <h1><%= @place.name %></h1> 
-
+      
       <% pre_favourite = @place.favourite.find { |favourite| favourite.user_id == current_user.id} %>
 
         <% if pre_favourite %>
-
-          <%= button_to 'Unfavourite', post_favourite_path(@place,pre_favourite), method: :delete %>
+        <div class="d-flex align-items-center">
+          <%= button_to '💔', post_favourite_path(@place,pre_favourite), class: "btn border-0 bg-white", method: :delete %> <span> <%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%> </span>
+        </div>
 
         <% else %>
-
-          <%= button_to 'Favourite', post_favourite_path(@place), method: :post %>
+        <div class="d-flex align-items-center">
+          <%= button_to '❤️', post_favourite_path(@place), class: "btn border-0 bg-white", method: :post %> <span><%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%></span>
+        </div>
 
       <% end %>
-      <p><%= @place.favourite.count %> <%= (@place.favourite.count) == 1 ? 'people favourited this' : 'people favourited this'%></p>
+      
+      <hr>
 
       <!-- display name of user who posted specific place_id -->
       <p>By: <a href="/places/user/<%= @user_id%>" > <%= @creator.username%></a></p>
@@ -130,19 +133,19 @@
     <textarea class="form-control" type="text" name="place[review]" id="place_review"></textarea>
     </div>
 
-    <%= form.submit "Post Review!", class: "submit"%>
+    <%= form.submit "Post Review!", class: "submit btn btn-success"%>
   <% end %>
 
     
 
     <!-- if admin is logged in, back button will go back to pending posts, else back button will got to my places -->
     <% if user_signed_in? and @place.approval == false %>
-    <%= link_to 'Edit', edit_place_path %>
+    <%= link_to 'Edit', edit_place_path, class: "btn btn-warning mt-4" %>
     <% end %>
     <% if user_signed_in? and current_user.admin == true and @place.approval == false %>
-      <%= link_to 'Back', approve_admins_path %>
+      <%= link_to 'Back', approve_admins_path, class: "btn btn-primary mt-4" %>
     <%elsif user_signed_in? and @place.approval == true and @place.user_id = current_user.id%>
-      <%= link_to 'Back', places_path %>
+      <%= link_to 'Back', places_path, class: "btn btn-primary mt-4" %>
     <% end %>
     </div>
 </div>
