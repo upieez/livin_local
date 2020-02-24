@@ -1,20 +1,17 @@
-<h1>Posts by:<%= @user.username%></h1>
+<h1 class="text-center">Posts by <%= @user.username%> 🌈✨</h1>
 
-
-<div class="row d-flex justify-content-around p-4 text-center">
-    <div class="card-columns">
-        <% @places.each do |p| %>
-            <div class="mb-4 card border-warning">
-                <div class="border-warning rounded-2">
-                    <%= cl_image_tag((p.img_url), class: "card-img-top") %>
-                    <div class="card-body">
-                        <h5 class="card-title"><%=p.name%></h5>
-                        <%= link_to 'View', place_path(p), class: "btn btn-primary" %>
-                    </div>
-                </div>
+<div id="card-container" class="row d-flex justify-content-around p-4 text-center">
+<div class="card-columns">
+    <% @places.each do |place| %>
+        <a href="/places/<%= place.id %>">
+            <div class="card bg-transparent text-white">
+                <img class="card-img" src<%= cl_image_tag(place.img_url) %>
+                <h5 class="card-title d-flex"><%=place.name%></h5>
             </div>
-        <% end %>
-    </div>
+        </a>
+    <% end %>
+</div>
     <%= link_to 'Back', places_path, class: "btn btn-primary" %>
 </div>
+
 
